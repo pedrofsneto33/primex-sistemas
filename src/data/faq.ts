@@ -15,7 +15,7 @@ export const faqItems: FaqItem[] = [
     id: "2",
     question: "Qual é o prazo médio de entrega?",
     answer:
-      "Projetos menores (sites institucionais, landing pages) ficam prontos entre 2 e 4 semanas. Sistemas mais complexos (ERPs, apps mobile, IA) podem levar de 2 a 6 meses. Definimos o cronograma junto com você na fase de descoberta.",
+      "Projetos menores (sites institucionais, landing pages) ficam prontos entre 2 e 4 semanas. Sistemas complexos (ERPs, apps mobile, IA) são entregues entre 20 e 50 dias, dependendo do escopo. Definimos o cronograma detalhado junto com você na fase de descoberta.",
   },
   {
     id: "3",

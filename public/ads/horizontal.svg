@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="628" viewBox="0 0 1200 628">
+  <defs>
+    <radialGradient id="glow2" cx="25%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#00C853" stop-opacity="0.3"/>
+      <stop offset="70%" stop-color="#00C853" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#0A0A0A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="topline2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0A0A0A"/>
+      <stop offset="50%" stop-color="#00C853"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo -->
+  <rect width="1200" height="628" fill="#0A0A0A"/>
+  <rect width="1200" height="628" fill="url(#glow2)"/>
+
+  <!-- Linha verde topo -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#topline2)"/>
+
+  <!-- Coluna esquerda: Logo -->
+  <g transform="translate(200, 314)">
+    <polygon points="0,-85 74,-42 74,42 0,85 -74,42 -74,-42" 
+             fill="none" stroke="#00C853" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M -22,-48 L -22,48 M -22,-48 L 15,-48 C 38,-48 52,-30 52,-12 C 52,6 38,24 15,24 L -22,24"
+          fill="none" stroke="#00C853" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="200" y="450" font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">PRIMEX SISTEMAS</text>
+
+  <!-- Divisor vertical -->
+  <line x1="380" y1="120" x2="380" y2="508" stroke="#00C853" stroke-width="1" opacity="0.3"/>
+
+  <!-- Coluna direita: Texto -->
+  <text x="440" y="240" font-family="Inter, Helvetica, Arial, sans-serif" font-size="56" font-weight="800" fill="#FFFFFF" letter-spacing="-1">Software Sob Medida</text>
+  <text x="440" y="310" font-family="Inter, Helvetica, Arial, sans-serif" font-size="56" font-weight="800" fill="#00C853" letter-spacing="-1">para sua empresa</text>
+
+  <text x="440" y="370" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="400" fill="#9CA3AF">Entrega em 20-50 dias · 100% LGPD</text>
+
+  <!-- Botão CTA -->
+  <rect x="440" y="410" width="340" height="70" rx="12" fill="#00C853"/>
+  <text x="610" y="455" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#0A0A0A" text-anchor="middle" letter-spacing="1">ORÇAMENTO GRÁTIS</text>
+
+  <!-- URL -->
+  <text x="440" y="540" font-family="Inter, Helvetica, Arial, sans-serif" font-size="20" font-weight="500" fill="#6B7280">primex-sistemas.vercel.app</text>
+</svg>

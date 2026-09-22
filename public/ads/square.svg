@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00C853" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#00C853" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#0A0A0A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="topline" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0A0A0A"/>
+      <stop offset="50%" stop-color="#00C853"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo -->
+  <rect width="1080" height="1080" fill="#0A0A0A"/>
+  <rect width="1080" height="1080" fill="url(#glow)"/>
+
+  <!-- Linha verde topo -->
+  <rect x="0" y="0" width="1080" height="8" fill="url(#topline)"/>
+
+  <!-- Hexágono logo -->
+  <g transform="translate(540, 260)">
+    <polygon points="0,-90 78,-45 78,45 0,90 -78,45 -78,-45" 
+             fill="none" stroke="#00C853" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M -25,-50 L -25,50 M -25,-50 L 15,-50 C 40,-50 55,-32 55,-12 C 55,8 40,26 15,26 L -25,26"
+          fill="none" stroke="#00C853" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Título PRIMEX -->
+  <text x="540" y="480" font-family="Inter, Helvetica, Arial, sans-serif" font-size="96" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="-3">PRIMEX</text>
+  <text x="540" y="580" font-family="Inter, Helvetica, Arial, sans-serif" font-size="96" font-weight="800" fill="#00C853" text-anchor="middle" letter-spacing="-3">SISTEMAS</text>
+
+  <!-- Linha separadora -->
+  <line x1="340" y1="660" x2="740" y2="660" stroke="#00C853" stroke-width="2" opacity="0.5"/>
+
+  <!-- Subtítulo -->
+  <text x="540" y="730" font-family="Inter, Helvetica, Arial, sans-serif" font-size="40" font-weight="600" fill="#E5E7EB" text-anchor="middle" letter-spacing="2">SITES, APPS E SISTEMAS</text>
+  <text x="540" y="790" font-family="Inter, Helvetica, Arial, sans-serif" font-size="32" font-weight="400" fill="#9CA3AF" text-anchor="middle">Sob medida para sua empresa</text>
+
+  <!-- Serviços -->
+  <text x="540" y="890" font-family="Inter, Helvetica, Arial, sans-serif" font-size="28" font-weight="600" fill="#00C853" text-anchor="middle" letter-spacing="4">WEB · MOBILE · IA</text>
+
+  <!-- Rodapé -->
+  <text x="540" y="990" font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="500" fill="#6B7280" text-anchor="middle">primex-sistemas.vercel.app</text>
+</svg>

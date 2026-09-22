@@ -6,6 +6,7 @@ import { motion } from "motion/react"
 import { ArrowRight, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import ServicesSection from "@/components/home/ServicesSection"
+import ProcessSection from "@/components/home/ProcessSection"
 import SocialProof from "@/components/home/SocialProof"
 
 // Hero 3D carregado apenas no cliente (SSR off por causa do WebGL)
@@ -76,6 +77,9 @@ export default function Home() {
 
       {/* SERVIÇOS */}
       <ServicesSection />
+
+      {/* PROCESSO */}
+      <ProcessSection />
 
       {/* PROVA SOCIAL */}
       <SocialProof />

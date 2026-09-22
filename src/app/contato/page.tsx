@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Mail, Phone, MapPin, Clock, Shield } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
-import { ContactForm } from "@/components/contato/ContactForm"
+import ContactForm from "@/components/contato/ContactForm"
 
 export const metadata: Metadata = {
   title: "Contato — Primex Sistemas",

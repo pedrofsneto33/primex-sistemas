@@ -46,7 +46,7 @@ export const metadata: Metadata = {
       "Desenvolvimento de softwares e soluções inteligentes para transformar seu negócio.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Primex Sistemas — Soluções Inteligentes",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     title: "Primex Sistemas — Soluções Inteligentes",
     description:
       "Desenvolvimento de softwares e soluções inteligentes para transformar seu negócio.",
-    images: ["/og-image.jpg"],
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,

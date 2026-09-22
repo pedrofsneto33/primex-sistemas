@@ -25,7 +25,7 @@ export default function AboutPage() {
             Quem <span className="text-primex-green">Somos</span>
           </h1>
           <p className="text-lg md:text-xl text-primex-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Tecnologia que resolve, parceria que dura. Combinamos inovação, engenharia de software de ponta e foco total nos resultados do seu negócio.
+            Somos uma empresa de desenvolvimento de software com sede em Teresina (PI) e atuação em âmbito nacional. Criamos soluções sob medida para empresas de todos os portes e órgãos públicos, unindo tecnologia de ponta, atendimento próximo e conformidade com a LGPD.
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-primex-gray-300 opacity-70 text-xs">
             <span>PRIMEX SISTEMAS LTDA</span>

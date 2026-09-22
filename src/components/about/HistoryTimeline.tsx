@@ -5,9 +5,21 @@ import { motion } from "motion/react"
 const timeline = [
   { year: "2015", title: "Fundação", description: "Nascemos com a missão de transformar negócios através da tecnologia." },
   { year: "2018", title: "Primeiro grande cliente", description: "Firmamos parceria com uma indústria de médio porte." },
+  {
+    year: "2020",
+    title: "Expansão nacional",
+    description:
+      "Passamos a atender clientes em todo o Brasil de forma remota, com projetos corporativos em varejo, serviços e indústria.",
+  },
   { year: "2021", title: "Expansão nacional", description: "Atendemos clientes em 8 estados brasileiros." },
   { year: "2024", title: "Soluções em IA", description: "Incorporamos inteligência artificial em nossos produtos." },
   { year: "2025", title: "Soluções Inteligentes", description: "Reforçamos nosso lema: tecnologia que resolve." },
+  {
+    year: "2026",
+    title: "Soluções Inteligentes",
+    description:
+      "Atuação em âmbito nacional, com mais de 45 projetos entregues e 20 clientes ativos em todo o Brasil. Seguimos inovando com o lema: tecnologia que resolve.",
+  },
 ]
 
 export function HistoryTimeline() {

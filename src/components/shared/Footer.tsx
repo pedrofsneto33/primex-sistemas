@@ -38,7 +38,7 @@ export function Footer() {
               <span className="text-primex-green font-semibold">
                 Soluções Inteligentes
               </span>{" "}
-              para transformar seu negócio.
+              para transformar seu negócio. Atuação em âmbito nacional.
             </p>
           </div>
 

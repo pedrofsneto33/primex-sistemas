@@ -43,6 +43,14 @@ export default function ContactForm() {
     watch,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      company: "",
+      phone: "",
+      service: "",
+      message: "",
+    },
   })
 
   const serviceValue = watch("service")
@@ -75,7 +83,14 @@ export default function ContactForm() {
 
       if (result.success) {
         setIsSuccess(true)
-        reset()
+        reset({
+          name: "",
+          email: "",
+          company: "",
+          phone: "",
+          service: "",
+          message: "",
+        })
         setTimeout(() => setIsSuccess(false), 8000)
       } else {
         setErrorMessage(
@@ -192,7 +207,7 @@ export default function ContactForm() {
               Serviço desejado *
             </Label>
             <Select
-              value={serviceValue}
+              value={serviceValue ?? ""}
               onValueChange={(v) =>
                 setValue("service", v, { shouldValidate: true })
               }

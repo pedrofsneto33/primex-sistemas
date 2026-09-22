@@ -36,6 +36,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Primex Sistemas" }],
   creator: "Primex Sistemas",
+  verification: {
+    google: "ta9MWMA6OfyrcWI3zaewPviM6O8SgfJRr9ylI4REg8I",
+  },
   openGraph: {
     type: "website",
     locale: "pt_BR",

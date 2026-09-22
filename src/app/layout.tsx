@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Navbar } from "@/components/shared/Navbar"
 import { Footer } from "@/components/shared/Footer"
+import { ScrollProgress } from "@/components/shared/ScrollProgress"
 import "./globals.css"
 
 // Fontes do Google via next/font (hospedadas no Vercel, zero FOIT)
@@ -87,6 +88,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col bg-primex-black text-primex-white antialiased">
         <TooltipProvider>
+          <ScrollProgress />
           <Navbar />
           <main className="flex-1 pt-16">{children}</main>
           <Footer />

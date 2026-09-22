@@ -3,7 +3,7 @@
 import { team } from "@/data/team"
 import { motion } from "motion/react"
 import { Card, CardContent } from "@/components/ui/card"
-import { Briefcase, Mail, User } from "lucide-react"
+import { Briefcase, Mail, User, Camera } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 
 const socialIconMap: Record<string, LucideIcon> = {
@@ -12,6 +12,7 @@ const socialIconMap: Record<string, LucideIcon> = {
   github: User,
   twitter: User,
   dribbble: User,
+  instagram: Camera,
 }
 
 export function TeamSection() {

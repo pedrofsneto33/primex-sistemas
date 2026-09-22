@@ -2,50 +2,33 @@ import type { TeamMember } from "@/types"
 
 export const team: TeamMember[] = [
   {
-    id: "ana-silva",
-    name: "Ana Silva",
-    role: "CEO & Fundadora",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face",
-    bio: "20+ anos de experiência em tecnologia. Vencedora do Prêmio Mulheres in Tech 2023.",
+    id: "1",
+    name: "Pedro Francisco da Silva Neto",
+    role: "CEO",
+    image: "/images/equipe/pedro.jpg",
+    bio: "Engenheiro de Software com especialização em Análise de Dados e Inteligência Artificial.",
     social: {
-      linkedin: "https://linkedin.com/in/ana-silva",
-      twitter: "https://twitter.com/anasilva",
+      instagram: "https://instagram.com/primexsistemas",
     },
   },
   {
-    id: "carlos-oliveira",
-    name: "Carlos Oliveira",
-    role: "CTO",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-    bio: "Engenheiro de software com foco em arquitetura e inovação tecnológica.",
+    id: "2",
+    name: "Nivardo Borges",
+    role: "Co-Founder",
+    image: "/images/equipe/nivardo.jpg",
+    bio: "Desenvolvedor há mais de 20 anos, especialista em Inteligência Artificial e arquitetura de sistemas.",
     social: {
-      linkedin: "https://linkedin.com/in/carlos-oliveira",
-      github: "https://github.com/carlosoliveira",
+      instagram: "https://instagram.com/primexsistemas",
     },
   },
   {
-    id: "marina-santos",
-    name: "Marina Santos",
-    role: "Diretora de Design",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-    bio: "Designer UX/UI apaixonada por criar experiências digitais memoráveis.",
+    id: "3",
+    name: "João Honorato de Moraes Neto",
+    role: "Gerente de Marketing e Vendas",
+    image: "/images/equipe/joao.jpg",
+    bio: "Especialista em estratégias de crescimento, posicionamento de marca e relacionamento com clientes.",
     social: {
-      linkedin: "https://linkedin.com/in/marinasantos",
-      dribbble: "https://dribbble.com/marinasantos",
-    },
-  },
-  {
-    id: "pedro-almeida",
-    name: "Pedro Almeida",
-    role: "Gerente de Projetos",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
-    bio: "PMP certificado com expertise em metodologias ágeis e entrega de valor.",
-    social: {
-      linkedin: "https://linkedin.com/in/pedroalmeida",
+      instagram: "https://instagram.com/primexsistemas",
     },
   },
 ]
-
-export function getTeamMemberById(id: string): TeamMember | undefined {
-  return team.find((m) => m.id === id)
-}

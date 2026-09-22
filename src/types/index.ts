@@ -60,6 +60,7 @@ export interface TeamMember {
     twitter?: string
     dribbble?: string
     email?: string
+    instagram?: string
   }
 }
 

@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 }
 
 const contactInfo = [
-  { icon: Mail, label: "E-mail", value: "contato@primexsistemas.com.br" },
-  { icon: Phone, label: "Telefone", value: "+55 (11) 99999-9999" },
-  { icon: MapPin, label: "Localização", value: "São Paulo, SP - Brasil" },
+  { icon: Mail, label: "E-mail", value: "pedrofsneto33@gmail.com" },
+  { icon: Phone, label: "Telefone", value: "+55 (86) 98811-7925" },
+  { icon: MapPin, label: "Localização", value: "Teresina, PI - Brasil" },
   { icon: Clock, label: "Horário", value: "Seg-Sex, 9h às 18h" },
 ]
 
@@ -81,7 +81,7 @@ export default function ContactPage() {
                       <MapPin className="w-7 h-7" />
                     </div>
                     <h4 className="font-display text-primex-white font-semibold text-lg">
-                      São Paulo, SP
+                      Teresina, PI
                     </h4>
                     <p className="text-primex-gray-400 text-xs mt-1">
                       Atendimento presencial e remoto para todo o Brasil.

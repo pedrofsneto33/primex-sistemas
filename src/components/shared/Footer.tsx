@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Code2, Briefcase, Camera, Mail, Phone } from "lucide-react"
+import { Camera, Mail, Phone } from "lucide-react"
 import { Logo } from "@/components/shared/Logo"
 
 const navItems = {
@@ -18,14 +18,12 @@ const navItems = {
 }
 
 const socialLinks = [
-  { href: "https://linkedin.com/company/primexsistemas", icon: Briefcase, label: "LinkedIn" },
-  { href: "https://github.com/primexsistemas", icon: Code2, label: "GitHub" },
   { href: "https://instagram.com/primexsistemas", icon: Camera, label: "Instagram" },
 ]
 
 const contactInfo = [
-  { icon: Mail, label: "contato@primexsistemas.com.br" },
-  { icon: Phone, label: "+55 (11) 9999-9999" },
+  { icon: Mail, label: "pedrofsneto33@gmail.com" },
+  { icon: Phone, label: "+55 (86) 98811-7925" },
 ]
 
 export function Footer() {

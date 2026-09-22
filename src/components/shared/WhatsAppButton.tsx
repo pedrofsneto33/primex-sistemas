@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "motion/react"
 import { useState } from "react"
 
-const WHATSAPP_NUMBER = "5511999999999"
+const WHATSAPP_NUMBER = "5586988117925"
 const WHATSAPP_MESSAGE = "Olá! Vim pelo site da Primex Sistemas e gostaria de saber mais sobre os serviços."
 
 function WhatsAppIcon({ size = 28 }: { size?: number }) {

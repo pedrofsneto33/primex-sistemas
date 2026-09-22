@@ -81,7 +81,7 @@ export default function CtaSection() {
                 className="border-primex-gray-700 text-primex-white hover:bg-primex-gray-900 h-14 px-8 text-base"
               >
                 <a
-                  href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Primex%20Sistemas."
+                  href="https://wa.me/5586988117925?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Primex%20Sistemas."
                   target="_blank"
                   rel="noopener noreferrer"
                 >

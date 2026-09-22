@@ -2,34 +2,30 @@ import type { Testimonial } from "@/types"
 
 export const testimonials: Testimonial[] = [
   {
-    id: "testimonial-1",
-    name: "Ricardo Mendes",
-    company: "LojaTop Brasil",
-    role: "Diretor de Tecnologia",
+    id: "1",
+    name: "João Amarilson",
+    company: "São Francisco Funerária",
+    role: "Proprietário",
     content:
-      "A Primex transformou completamente nossa plataforma de e-commerce. A equipe é extremamente competente e dedicada. Resultados superiores às expectativas.",
+      "Empresa de excelente qualidade e prestatividade. Recomendo pelo profissionalismo, agilidade no atendimento e compromisso com o resultado.",
     rating: 5,
   },
   {
-    id: "testimonial-2",
-    name: "Juliana Costa",
-    company: "SaúdePlus",
+    id: "2",
+    name: "João Portela",
+    company: "Maison Iphone",
     role: "CEO",
     content:
-      "O chatbot desenvolvido pela Primex revolucionou nosso atendimento. Reduzimos tempo de espera e aumentamos a satisfação dos pacientes em 80%.",
+      "A Primex desenvolveu nosso website com funcionalidade tanto para desktop quanto para mobile. Ficou exatamente como precisávamos, com performance e design impecáveis.",
     rating: 5,
   },
   {
-    id: "testimonial-3",
-    name: "Felipe Rocha",
-    company: "AutoParts Industrial",
-    role: "Diretor de Operações",
+    id: "3",
+    name: "Setor Público",
+    company: "Prefeitura Municipal",
+    role: "Gestão Pública",
     content:
-      "O ERP implementado pela Primex unificou nossas operações e reduziu erros em 90%. Recomendo sem hesitação.",
+      "Excelentes profissionais para os departamentos do sistema público. Trabalho técnico de alta qualidade, com prazos cumpridos e suporte dedicado.",
     rating: 5,
   },
 ]
-
-export function getTestimonials(): Testimonial[] {
-  return testimonials
-}

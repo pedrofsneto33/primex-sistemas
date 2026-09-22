@@ -41,4 +41,22 @@ export const faqItems: FaqItem[] = [
     answer:
       "Sim! Atendemos clientes em todo o território nacional de forma 100% remota, com reuniões online e comunicação transparente por canais como WhatsApp, e-mail e videoconferência.",
   },
+  {
+    id: "7",
+    question: "Vocês trabalham com conformidade à LGPD?",
+    answer:
+      "Sim! Todos os nossos projetos são desenvolvidos seguindo as diretrizes da Lei Geral de Proteção de Dados (LGPD). Contamos com uma advogada especialista em proteção de dados que atua em conjunto com nossa equipe técnica, garantindo que sistemas e dados dos usuários estejam sempre em conformidade com a legislação brasileira.",
+  },
+  {
+    id: "8",
+    question: "Quais são as formas de pagamento?",
+    answer:
+      "Aceitamos pagamentos via PIX diretamente para a empresa e também por outras formas através da plataforma Asaas (boleto, cartão de crédito, transferência). Definimos o formato ideal junto com você no início do projeto, com opções de parcelamento conforme o escopo.",
+  },
+  {
+    id: "9",
+    question: "Vocês fazem integração com sistemas de outras empresas?",
+    answer:
+      "Sim! Desenvolvemos integrações com ERPs, CRMs, sistemas de pagamento, plataformas de e-commerce, APIs de terceiros e qualquer sistema que possua interface de integração. Se a sua empresa já usa algum sistema específico, podemos conectar tudo em uma única solução.",
+  },
 ]

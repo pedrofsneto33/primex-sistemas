@@ -1,11 +1,10 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import Link from "next/link"
-import { motion } from "motion/react"
-import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/shared/Logo"
+import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { href: "/solucoes", label: "Soluções" },
@@ -15,101 +14,101 @@ const navLinks = [
 ]
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener("scroll", handleScroll, { passive: true })
+    const handleScroll = () => setIsScrolled(window.scrollY > 20)
+    handleScroll()
+    window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // Bloqueia scroll do body quando menu mobile aberto
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : ""
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [isOpen])
 
   return (
     <header
       className={[
-        "fixed top-0 left-0 right-0 z-50 h-16 flex items-center transition-all duration-300",
-        scrolled
-          ? "bg-primex-black/95 backdrop-blur-md border-b border-primex-gray-800 shadow-lg shadow-black/20"
-          : "bg-primex-black/80 backdrop-blur-sm border-b border-transparent",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        isScrolled
+          ? "backdrop-blur-xl bg-primex-black/60 border-b border-primex-white/10 shadow-lg shadow-primex-green/5"
+          : "backdrop-blur-md bg-primex-black/30 border-b border-transparent",
       ].join(" ")}
     >
-      <div className="w-full px-4 md:px-8">
-        <div className="flex items-center justify-between max-w-7xl mx-auto">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <Logo size={36} />
-          </div>
+      {/* Linha de brilho verde no topo (detalhe glassmorphism premium) */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primex-green/40 to-transparent" />
 
-          {/* Links desktop */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Navegação principal">
-            {navLinks.map((link) => (
+      <nav className="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
+        <Logo size={32} />
+
+        {/* Links desktop */}
+        <ul className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <li key={link.href}>
               <Link
-                key={link.href}
                 href={link.href}
-                className="text-primex-gray-300 hover:text-primex-green transition-colors duration-200 text-sm font-medium tracking-wide"
+                className="text-sm text-primex-gray-100 hover:text-primex-green transition-colors relative group"
               >
                 {link.label}
+                <span className="absolute -bottom-1 left-0 right-0 h-px bg-primex-green scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
               </Link>
-            ))}
-          </nav>
+            </li>
+          ))}
+        </ul>
 
-          {/* Botão desktop */}
-          <div className="hidden md:flex">
-            <Button
-              asChild
-              size="sm"
-              className="bg-primex-green hover:bg-primex-green-hover text-primex-black font-semibold"
-            >
-              <Link href="/contato">Fale Conosco</Link>
-            </Button>
-          </div>
-
-          {/* Botão menu mobile */}
-          <button
-            className="md:hidden p-2 text-primex-white hover:text-primex-green transition-colors"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Painel mobile */}
-      {mobileOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-primex-black flex flex-col items-center justify-center gap-8 md:hidden animate-in fade-in duration-200"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Menu de navegação"
-        >
-          <nav className="flex flex-col items-center gap-6 text-center">
-            {navLinks.map((link, i) => (
-              <motion.div
-                key={link.href}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.08, duration: 0.3 }}
-              >
-                <Link
-                  href={link.href}
-                  className="text-2xl font-display text-primex-white hover:text-primex-green transition-colors"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </motion.div>
-            ))}
-          </nav>
+        {/* Botão desktop */}
+        <div className="hidden md:block">
           <Button
             asChild
-            size="lg"
-            className="mt-6 bg-primex-green hover:bg-primex-green-hover text-primex-black font-semibold"
-            onClick={() => setMobileOpen(false)}
+            className="bg-primex-green hover:bg-primex-green-hover text-primex-black font-semibold backdrop-blur-sm"
           >
             <Link href="/contato">Fale Conosco</Link>
           </Button>
+        </div>
+
+        {/* Botão mobile */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden text-primex-white p-2 rounded-lg hover:bg-primex-white/5 transition-colors"
+          aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </nav>
+
+      {/* Menu mobile — overlay glassmorphism */}
+      {isOpen && (
+        <div className="md:hidden fixed inset-0 top-16 backdrop-blur-2xl bg-primex-black/80 border-t border-primex-white/10">
+          <ul className="flex flex-col items-center justify-center h-full gap-8 px-6">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="text-2xl font-display text-primex-white hover:text-primex-green transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            <li className="mt-4">
+              <Button
+                asChild
+                size="lg"
+                className="bg-primex-green hover:bg-primex-green-hover text-primex-black font-semibold"
+              >
+                <Link href="/contato" onClick={() => setIsOpen(false)}>
+                  Fale Conosco
+                </Link>
+              </Button>
+            </li>
+          </ul>
         </div>
       )}
     </header>

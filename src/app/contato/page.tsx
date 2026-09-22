@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Mail, Phone, MapPin, Clock } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, Shield } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { ContactForm } from "@/components/contato/ContactForm"
 
@@ -13,6 +13,7 @@ const contactInfo = [
   { icon: Phone, label: "Telefone", value: "+55 (86) 98811-7925" },
   { icon: MapPin, label: "Localização", value: "Teresina, PI - Brasil" },
   { icon: Clock, label: "Horário", value: "Seg-Sex, 9h às 18h" },
+  { icon: Shield, label: "CNPJ", value: "55.536.885/0001-30" },
 ]
 
 export default function ContactPage() {

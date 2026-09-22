@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     url: "https://primexsistemas.com.br",
-    siteName: "Primex Sistemas",
+    siteName: "Primex Sistemas Ltda",
     title: "Primex Sistemas — Soluções Inteligentes",
     description:
       "Desenvolvimento de softwares e soluções inteligentes para transformar seu negócio.",

@@ -121,10 +121,15 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-6 border-t border-primex-gray-800 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-primex-gray-300 text-xs">
-            © 2025 Primex Sistemas. Todos os direitos reservados.
-          </p>
+        <div className="mt-12 pt-6 border-t border-primex-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="text-center sm:text-left space-y-1">
+            <p className="text-primex-gray-300 text-xs">
+              © 2025 Primex Sistemas Ltda. Todos os direitos reservados.
+            </p>
+            <p className="text-primex-gray-300 text-xs opacity-70">
+              CNPJ: 55.536.885/0001-30
+            </p>
+          </div>
           <p className="text-primex-gray-300 text-xs">
             Desenvolvido com ❤️ por{" "}
             <Link href="/" className="text-primex-green hover:underline">

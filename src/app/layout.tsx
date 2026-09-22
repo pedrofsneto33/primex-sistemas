@@ -84,7 +84,6 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable}`}
     >
       <head>
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <meta name="theme-color" content="#0A0A0A" />
       </head>
       <body className="min-h-screen flex flex-col bg-primex-black text-primex-white antialiased">

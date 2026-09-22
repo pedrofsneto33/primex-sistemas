@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import ServicesSection from "@/components/home/ServicesSection"
 import ProcessSection from "@/components/home/ProcessSection"
 import StatsSection from "@/components/home/StatsSection"
+import TechMarquee from "@/components/home/TechMarquee"
 import SocialProof from "@/components/home/SocialProof"
 import FaqSection from "@/components/home/FaqSection"
 import CtaSection from "@/components/home/CtaSection"
@@ -86,6 +87,9 @@ export default function Home() {
 
       {/* ESTATÍSTICAS */}
       <StatsSection />
+
+      {/* MARQUEE DE TECNOLOGIAS */}
+      <TechMarquee />
 
       {/* PROVA SOCIAL */}
       <SocialProof />

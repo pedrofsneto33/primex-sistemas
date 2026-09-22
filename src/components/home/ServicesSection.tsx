@@ -4,6 +4,7 @@ import { motion } from "motion/react"
 import { Globe, Smartphone, Settings, Brain, Shield, LucideIcon, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
+import { TiltCard } from "@/components/shared/TiltCard"
 import { services } from "@/data/services"
 
 const iconMap: Record<string, LucideIcon> = {
@@ -74,7 +75,8 @@ export default function ServicesSection() {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 className={`${layout.span} col-span-1`}
               >
-                <Link href={`/solucoes#${service.slug}`} className="block h-full group">
+                <TiltCard intensity={8} className="h-full">
+                  <Link href={`/solucoes#${service.slug}`} className="block h-full group">
                   <Card
                     className={[
                       "relative overflow-hidden h-full transition-all duration-500",
@@ -136,6 +138,7 @@ export default function ServicesSection() {
                     </div>
                   </Card>
                 </Link>
+              </TiltCard>
               </motion.div>
             )
           })}

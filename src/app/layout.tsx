@@ -5,6 +5,7 @@ import { Navbar } from "@/components/shared/Navbar"
 import { Footer } from "@/components/shared/Footer"
 import { ScrollProgress } from "@/components/shared/ScrollProgress"
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton"
+import { BackToTop } from "@/components/shared/BackToTop"
 import "./globals.css"
 
 // Fontes do Google via next/font (hospedadas no Vercel, zero FOIT)
@@ -96,6 +97,7 @@ export default function RootLayout({
           <main className="flex-1 pt-16">{children}</main>
           <Footer />
           <WhatsAppButton />
+          <BackToTop />
         </TooltipProvider>
       </body>
     </html>

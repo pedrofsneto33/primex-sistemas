@@ -4,6 +4,7 @@ import { Globe, Smartphone, Settings, Brain, TrendingUp } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { motion } from "motion/react"
 import { Card, CardContent } from "@/components/ui/card"
+import { TiltCard } from "@/components/shared/TiltCard"
 import type { Case } from "@/types"
 
 interface CaseCardProps {
@@ -36,7 +37,8 @@ export function CaseCard({ caseItem, index }: CaseCardProps) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="h-full"
     >
-      <Card className="h-full bg-primex-dark border-primex-gray-800 hover:border-primex-green transition-all duration-300 flex flex-col overflow-hidden group">
+      <TiltCard intensity={6} className="h-full">
+        <Card className="h-full bg-primex-dark border-primex-gray-800 hover:border-primex-green transition-all duration-300 flex flex-col overflow-hidden group">
         {/* Header / Placeholder de imagem */}
         <div className="h-40 bg-gradient-to-br from-primex-green/20 via-primex-dark to-primex-black flex items-center justify-center relative border-b border-primex-gray-800">
           <div className="w-16 h-16 rounded-2xl bg-primex-green/10 flex items-center justify-center text-primex-green group-hover:scale-110 transition-transform">
@@ -86,6 +88,7 @@ export function CaseCard({ caseItem, index }: CaseCardProps) {
           </div>
         </CardContent>
       </Card>
+      </TiltCard>
     </motion.div>
   )
 }

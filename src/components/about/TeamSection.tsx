@@ -45,7 +45,7 @@ function TeamMemberCard({
                 alt={member.name}
                 width={96}
                 height={96}
-                className="rounded-full object-cover object-top w-24 h-24"
+                className="rounded-full object-cover object-center w-24 h-24 scale-110"
                 onError={() => setImageError(true)}
               />
             ) : (

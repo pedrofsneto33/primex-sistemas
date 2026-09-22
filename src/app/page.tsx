@@ -10,6 +10,7 @@ import ProcessSection from "@/components/home/ProcessSection"
 import StatsSection from "@/components/home/StatsSection"
 import SocialProof from "@/components/home/SocialProof"
 import FaqSection from "@/components/home/FaqSection"
+import CtaSection from "@/components/home/CtaSection"
 
 // Hero 3D carregado apenas no cliente (SSR off por causa do WebGL)
 const Hero3D = dynamic(() => import("@/components/home/Hero3D"), {
@@ -91,6 +92,9 @@ export default function Home() {
 
       {/* FAQ */}
       <FaqSection />
+
+      {/* CTA FINAL */}
+      <CtaSection />
     </>
   )
 }

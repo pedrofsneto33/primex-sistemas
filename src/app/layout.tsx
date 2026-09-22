@@ -89,6 +89,30 @@ export default function RootLayout({
     >
       <head>
         <meta name="theme-color" content="#0A0A0A" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+      document.addEventListener('selectstart', function(e) {
+        // Permite seleção em inputs e textareas
+        if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+          e.preventDefault();
+        }
+      });
+      document.addEventListener('keydown', function(e) {
+        // Bloqueia Ctrl+C, Ctrl+U, F12
+        if (
+          (e.ctrlKey && (e.key === 'c' || e.key === 'u')) ||
+          e.key === 'F12'
+        ) {
+          e.preventDefault();
+        }
+      });
+    `,
+          }}
+        />
       </head>
       <body className="min-h-screen flex flex-col bg-primex-black text-primex-white antialiased">
         <TooltipProvider>

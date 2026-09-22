@@ -13,10 +13,10 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  { value: 50, suffix: "+", label: "Projetos entregues", icon: Code2 },
-  { value: 30, suffix: "+", label: "Clientes ativos", icon: Users },
-  { value: 10, suffix: " anos", label: "De experiência", icon: Award },
-  { value: 98, suffix: "%", label: "Satisfação dos clientes", icon: Clock },
+  { value: 45, suffix: "+", label: "Projetos entregues", icon: Code2 },
+  { value: 20, suffix: "+", label: "Clientes ativos", icon: Users },
+  { value: 8, suffix: " anos", label: "No mercado", icon: Award },
+  { value: 97, suffix: "%", label: "Clientes satisfeitos", icon: Clock },
 ]
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {

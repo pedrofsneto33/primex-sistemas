@@ -1,6 +1,6 @@
 "use client"
 
-import { Globe, Smartphone, Settings, Brain, Check } from "lucide-react"
+import { Globe, Smartphone, Settings, Brain, Shield, Check } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { motion } from "motion/react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -16,6 +16,7 @@ const iconMap: Record<string, LucideIcon> = {
   Smartphone,
   Settings,
   Brain,
+  Shield,
 }
 
 const categoryMap: Record<string, string> = {

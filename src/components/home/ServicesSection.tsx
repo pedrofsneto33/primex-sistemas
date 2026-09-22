@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "motion/react"
-import { Globe, Smartphone, Settings, Brain, LucideIcon, ArrowRight } from "lucide-react"
+import { Globe, Smartphone, Settings, Brain, Shield, LucideIcon, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { services } from "@/data/services"
@@ -11,6 +11,7 @@ const iconMap: Record<string, LucideIcon> = {
   Smartphone,
   Settings,
   Brain,
+  Shield,
 }
 
 // Configuração do bento: quais cards são grandes
@@ -19,6 +20,7 @@ const bentoLayout = [
   { span: "lg:col-span-3", size: "small" },   // Mobile
   { span: "lg:col-span-3", size: "small" },   // Sistemas
   { span: "lg:col-span-3", size: "large" },   // IA & Automação — grande
+  { span: "lg:col-span-6", size: "large" },   // Manutenção e Suporte — full width
 ]
 
 export default function ServicesSection() {

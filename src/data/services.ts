@@ -2,35 +2,43 @@ import type { Service } from "@/types"
 
 export const services: Service[] = [
   {
-    id: "web",
+    id: "1",
     title: "Desenvolvimento Web",
-    description: "Aplicações web modernas, responsivas e performáticas.",
+    description:
+      "Aplicações web modernas, rápidas e escaláveis, construídas com as melhores tecnologias do mercado.",
     icon: "Globe",
-    slug: "desenvolvimento-web",
+    slug: "web",
   },
   {
-    id: "mobile",
-    title: "Apps Mobile",
-    description: "Aplicativos nativos e multiplataforma para iOS e Android.",
+    id: "2",
+    title: "Aplicativos Mobile",
+    description:
+      "Apps nativos e híbridos para iOS e Android, com experiência de usuário excepcional e performance nativa.",
     icon: "Smartphone",
-    slug: "apps-mobile",
+    slug: "mobile",
   },
   {
-    id: "sistemas",
+    id: "3",
     title: "Sistemas Sob Medida",
-    description: "ERP, CRM e sistemas corporativos integrados.",
+    description:
+      "ERPs, CRMs e sistemas personalizados que se adaptam ao seu processo, incluindo integração com órgãos públicos.",
     icon: "Settings",
-    slug: "sistemas-sob-medida",
+    slug: "sistemas",
   },
   {
-    id: "ia",
+    id: "4",
     title: "IA e Automação",
-    description: "Soluções com inteligência artificial e automação de processos.",
+    description:
+      "Soluções inteligentes com Inteligência Artificial, OCR, análise de dados e automação de processos para otimizar operações.",
     icon: "Brain",
-    slug: "ia-automacoes",
+    slug: "ia",
+  },
+  {
+    id: "5",
+    title: "Manutenção e Suporte",
+    description:
+      "Suporte contínuo, manutenção e evolução dos softwares desenvolvidos pela Primex, garantindo estabilidade e melhorias constantes.",
+    icon: "Shield",
+    slug: "suporte",
   },
 ]
-
-export function getServiceBySlug(slug: string): Service | undefined {
-  return services.find((s) => s.slug === slug)
-}

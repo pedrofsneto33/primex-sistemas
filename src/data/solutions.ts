@@ -1,80 +1,89 @@
 import type { Solution } from "@/types"
 
-/**
- * Soluções detalhadas da Primex Sistemas
- * Usada na página /solucoes com descrições completas
- */
 export const solutions: Solution[] = [
   {
-    id: "solutions-web",
-    title: "Desenvolvimento Web",
+    id: "1",
+    title: "Web Apps",
     description:
-      "Criamos aplicações web modernas, rápidas e escaláveis. Do site institucional ao dashboard complexo, entregamos experiências digitais completas.",
+      "Aplicações web sob medida com React, Next.js e arquitetura moderna, focadas em performance e conversão.",
     category: "web",
     features: [
-      "Aplicações React/Next.js",
-      "E-commerce e plataformas digitais",
-      "Dashboards e painéis administrativos",
-      "APIs RESTful e GraphQL",
-      "Website institucionais e landing pages",
-      "PWA (Progressive Web Apps)",
+      "SEO otimizado",
+      "Performance",
+      "Responsivo",
+      "PWA ready",
+      "Dashboards",
+      "E-commerce",
     ],
     icon: "Globe",
-    slug: "desenvolvimento-web",
+    slug: "web-apps",
   },
   {
-    id: "solutions-mobile",
+    id: "2",
     title: "Apps Mobile",
     description:
-      "Desenvolvimento nativo e multiplataforma para iOS e Android. Aplicativos intuitivos que engajam usuários e geram resultados.",
+      "Aplicativos nativos e híbridos para iOS e Android, com experiência de usuário fluida e integração nativa.",
     category: "mobile",
     features: [
-      "Apps nativos (Swift/Kotlin)",
-      "React Native e Flutter",
-      "Design de UX/UI mobile",
-      "Integração com API backend",
-      "Publicação nas lojas (App Store/Play Store)",
-      "Apps com geolocalização e push notifications",
+      "React Native",
+      "Push notifications",
+      "Offline-first",
+      "App Store ready",
+      "Geolocalização",
+      "Integração com APIs",
     ],
     icon: "Smartphone",
     slug: "apps-mobile",
   },
   {
-    id: "solutions-sistemas",
-    title: "Sistemas Sob Medida",
+    id: "3",
+    title: "ERPs e CRMs",
     description:
-      "Sistemas corporativos integrados que automatizam processos e gerenciam operações. ERP, CRM e soluções customizadas para cada necessidade.",
+      "Sistemas de gestão empresarial personalizados, incluindo integração com sistemas públicos e privados.",
     category: "sistemas",
     features: [
-      "ERP (Enterprise Resource Planning)",
-      "CRM (Customer Relationship Management)",
-      "Controle de estoque e inventário",
-      "Gestão financeira e contábil",
-      "Automação de fluxos de trabalho",
-      "Relatórios e business intelligence",
+      "Multi-tenant",
+      "Relatórios",
+      "Integrações",
+      "Permissões",
+      "Automação de fluxos",
+      "APIs REST",
     ],
     icon: "Settings",
-    slug: "sistemas-sob-medida",
+    slug: "erps-crms",
   },
   {
-    id: "solutions-ia",
-    title: "IA e Automação",
+    id: "4",
+    title: "IA & Automação",
     description:
-      "Soluções inteligentes que utilizam machine learning, processamento de linguagem natural e automação para transformar operações em resultados.",
+      "Chatbots, OCR, análise preditiva, análise de dados e automação de processos com Inteligência Artificial.",
     category: "ia",
     features: [
-      "Chatbots e assistentes virtuais",
-      "Processamento de linguagem natural (NLP)",
-      "Automação de processos robótica (RPA)",
-      "Análise preditiva e machine learning",
-      "Reconhecimento de imagem e OCR",
-      "Integração com IA generativa (LLMs)",
+      "LLMs",
+      "OCR e visão computacional",
+      "Análise de dados",
+      "RAG",
+      "Automação de processos",
+      "Análise preditiva",
     ],
     icon: "Brain",
-    slug: "ia-automacoes",
+    slug: "ia-automacao",
+  },
+  {
+    id: "5",
+    title: "Manutenção e Suporte",
+    description:
+      "Suporte contínuo, correções, atualizações e evolução dos softwares criados pela Primex.",
+    category: "sistemas",
+    features: [
+      "Suporte dedicado",
+      "Monitoramento",
+      "Correções e updates",
+      "Evolução contínua",
+      "SLA personalizado",
+      "Backup e segurança",
+    ],
+    icon: "Shield",
+    slug: "suporte",
   },
 ]
-
-export function getSolutionBySlug(slug: string): Solution | undefined {
-  return solutions.find((s) => s.slug === slug)
-}

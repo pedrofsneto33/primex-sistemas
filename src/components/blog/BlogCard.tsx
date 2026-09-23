@@ -17,17 +17,22 @@ export function BlogCard({ post, index }: BlogCardProps): React.JSX.Element {
     month: "long",
     year: "numeric",
   });
+
+  const hasCustomCover = post.cover && post.cover !== "/images/blog/default.jpg";
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
+      className="h-full"
     >
-      <Link href={`/blog/${post.slug}`} className="block group h-full">
-        <article className="relative h-full rounded-2xl border border-primex-gray-800 bg-primex-dark overflow-hidden transition-all duration-300 hover:border-primex-green/60 hover:-translate-y-1 hover:shadow-xl hover:shadow-primex-green/5">
-          <div className="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-primex-green/20 via-primex-dark to-primex-black">
-            {post.cover && post.cover !== "/images/blog/default.jpg" ? (
+      <Link href={`/blog/${post.slug}`} className="block h-full">
+        <article className="group relative flex h-full flex-col rounded-2xl border border-primex-gray-800 bg-primex-dark overflow-hidden transition-all duration-300 hover:border-primex-green/60 hover:-translate-y-1 hover:shadow-xl hover:shadow-primex-green/5">
+          {/* Cover */}
+          <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-primex-green/20 via-primex-dark to-primex-black">
+            {hasCustomCover ? (
               <Image
                 src={post.cover}
                 alt={post.title}
@@ -37,16 +42,20 @@ export function BlogCard({ post, index }: BlogCardProps): React.JSX.Element {
               />
             ) : (
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-display text-4xl font-bold text-primex-green/30">
+                <span className="font-display text-3xl font-bold text-primex-green/30">
                   PRIMEX
                 </span>
               </div>
             )}
+
+            {/* Badge categoria */}
             <span className="absolute top-4 left-4 inline-block px-3 py-1 rounded-full bg-primex-black/80 backdrop-blur-sm border border-primex-green/30 text-primex-green text-xs font-medium">
               {post.category}
             </span>
           </div>
-          <div className="p-6 flex flex-col">
+
+          {/* Content */}
+          <div className="flex flex-1 flex-col p-6">
             <div className="flex items-center gap-4 text-primex-gray-300 text-xs mb-3">
               <span className="flex items-center gap-1.5">
                 <Calendar size={14} />
@@ -57,7 +66,7 @@ export function BlogCard({ post, index }: BlogCardProps): React.JSX.Element {
                 {post.readingTime}
               </span>
             </div>
-            <h3 className="font-display text-xl font-bold text-primex-white mb-3 group-hover:text-primex-green transition-colors leading-tight">
+            <h3 className="font-display text-lg font-bold text-primex-white mb-3 group-hover:text-primex-green transition-colors leading-snug line-clamp-2">
               {post.title}
             </h3>
             <p className="text-primex-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">

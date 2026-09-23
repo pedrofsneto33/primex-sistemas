@@ -14,8 +14,9 @@ export default function BlogPage(): React.JSX.Element {
   const posts = getAllPosts();
   return (
     <div className="min-h-screen bg-primex-black">
-      <section className="py-20 px-6 bg-primex-black relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primex-green/5 rounded-full blur-[140px] pointer-events-none" />
+      {/* HERO */}
+      <section className="py-20 px-6 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primex-green/5 rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="inline-block px-4 py-1.5 mb-6 rounded-full border border-primex-green/30 bg-primex-green/5 text-primex-green text-sm font-medium">
             Blog
@@ -28,6 +29,7 @@ export default function BlogPage(): React.JSX.Element {
           </p>
         </div>
       </section>
+      {/* POSTS */}
       <section className="py-12 px-6 pb-24">
         <div className="max-w-7xl mx-auto">
           {posts.length === 0 ? (
@@ -48,6 +50,7 @@ export default function BlogPage(): React.JSX.Element {
           )}
         </div>
       </section>
+      {/* CTA */}
       <section className="py-20 px-6 bg-primex-dark">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-primex-white mb-4">

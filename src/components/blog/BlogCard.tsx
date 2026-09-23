@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
-import { motion } from "motion/react";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { useState } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { motion } from "motion/react"
+import { Calendar, Clock, ArrowRight } from "lucide-react"
 import type { BlogPost } from "@/lib/blog";
 
 interface BlogCardProps {
@@ -12,13 +13,16 @@ interface BlogCardProps {
 }
 
 export function BlogCard({ post, index }: BlogCardProps): React.JSX.Element {
+  const [imageError, setImageError] = useState(false)
+
   const formattedDate = new Date(post.date).toLocaleDateString("pt-BR", {
     day: "2-digit",
     month: "long",
     year: "numeric",
   });
 
-  const hasCustomCover = post.cover && post.cover !== "/images/blog/default.jpg";
+  const showImage =
+    !imageError && post.cover && post.cover !== "/images/blog/default.jpg";
 
   return (
     <motion.div
@@ -32,13 +36,14 @@ export function BlogCard({ post, index }: BlogCardProps): React.JSX.Element {
         <article className="group relative flex h-full flex-col rounded-2xl border border-primex-gray-800 bg-primex-dark overflow-hidden transition-all duration-300 hover:border-primex-green/60 hover:-translate-y-1 hover:shadow-xl hover:shadow-primex-green/5">
           {/* Cover */}
           <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-primex-green/20 via-primex-dark to-primex-black">
-            {hasCustomCover ? (
+            {showImage ? (
               <Image
                 src={post.cover}
                 alt={post.title}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                onError={() => setImageError(true)}
               />
             ) : (
               <div className="absolute inset-0 flex items-center justify-center">

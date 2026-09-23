@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button"
 import ServicesSection from "@/components/home/ServicesSection"
 import ProcessSection from "@/components/home/ProcessSection"
 import StatsSection from "@/components/home/StatsSection"
-import TechMarquee from "@/components/home/TechMarquee"
 import SectorsSection from "@/components/home/SectorsSection"
 import SocialProof from "@/components/home/SocialProof"
 import FaqSection from "@/components/home/FaqSection"
@@ -83,20 +82,17 @@ export default function Home() {
       {/* SERVIÇOS */}
       <ServicesSection />
 
-      {/* PROCESSO */}
-      <ProcessSection />
-
       {/* ESTATÍSTICAS */}
       <StatsSection />
 
-      {/* MARQUEE DE TECNOLOGIAS */}
-      <TechMarquee />
+      {/* PROVA SOCIAL */}
+      <SocialProof />
+
+      {/* PROCESSO */}
+      <ProcessSection />
 
       {/* SETORES ATENDIDOS */}
       <SectorsSection />
-
-      {/* PROVA SOCIAL */}
-      <SocialProof />
 
       {/* FAQ */}
       <FaqSection />

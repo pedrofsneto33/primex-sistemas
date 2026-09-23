@@ -9,6 +9,7 @@ import ServicesSection from "@/components/home/ServicesSection"
 import ProcessSection from "@/components/home/ProcessSection"
 import StatsSection from "@/components/home/StatsSection"
 import TechMarquee from "@/components/home/TechMarquee"
+import SectorsSection from "@/components/home/SectorsSection"
 import SocialProof from "@/components/home/SocialProof"
 import FaqSection from "@/components/home/FaqSection"
 import CtaSection from "@/components/home/CtaSection"
@@ -90,6 +91,9 @@ export default function Home() {
 
       {/* MARQUEE DE TECNOLOGIAS */}
       <TechMarquee />
+
+      {/* SETORES ATENDIDOS */}
+      <SectorsSection />
 
       {/* PROVA SOCIAL */}
       <SocialProof />

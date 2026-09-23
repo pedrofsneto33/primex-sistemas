@@ -8,7 +8,7 @@ import * as THREE from "three";
 
 function CoreShape(): React.JSX.Element {
   const meshRef = useRef<THREE.Mesh>(null);
-  const geometry = useMemo(() => new THREE.IcosahedronGeometry(1.4, 0), []);
+  const geometry = useMemo(() => new THREE.IcosahedronGeometry(1.1, 0), []);
   const material = useMemo(
     () =>
       new THREE.MeshPhysicalMaterial({
@@ -37,7 +37,7 @@ function Particles({ count }: { count: number }): React.JSX.Element {
     for (let i = 0; i < count; i++) {
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
-      const radius = 5 + Math.random() * 2;
+      const radius = 4 + Math.random() * 1.5;
       pos.push(
         new THREE.Vector3(
           radius * Math.sin(phi) * Math.cos(theta),
@@ -148,7 +148,7 @@ export default function Hero3DMobile(): React.JSX.Element {
     <>
       <div className="absolute inset-0 -z-10">
         <Canvas
-          camera={{ position: [0, 0, 5], fov: 45 }}
+          camera={{ position: [0, 0, 8], fov: 50 }}
           dpr={1}
           gl={{ antialias: false, alpha: false, powerPreference: "default", stencil: false }}
           frameloop="always"

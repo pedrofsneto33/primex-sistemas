@@ -122,6 +122,15 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="mt-12 pt-6 border-t border-primex-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-4 gap-y-1 text-xs text-primex-gray-300 mb-3">
+            <Link href="/privacidade" className="hover:text-primex-green transition-colors">
+              Política de Privacidade
+            </Link>
+            <span className="text-primex-gray-700">•</span>
+            <Link href="/termos" className="hover:text-primex-green transition-colors">
+              Termos de Uso
+            </Link>
+          </div>
           <div className="text-center sm:text-left space-y-1">
             <p className="text-primex-gray-300 text-xs">
               © 2025 Primex Sistemas Ltda. Todos os direitos reservados.

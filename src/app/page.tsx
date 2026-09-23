@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import dynamic from "next/dynamic"
+import { useState, useEffect } from "react"
 import { motion } from "motion/react"
 import { ArrowRight, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -21,12 +22,28 @@ const Hero3D = dynamic(() => import("@/components/home/Hero3D"), {
   ),
 })
 
+const Hero3DMobile = dynamic(() => import("@/components/home/Hero3DMobile"), {
+  ssr: false,
+  loading: () => (
+    <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primex-black via-primex-dark to-primex-black" />
+  ),
+})
+
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener("resize", check)
+    return () => window.removeEventListener("resize", check)
+  }, [])
+
   return (
     <>
       {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <Hero3D />
+        {isMobile ? <Hero3DMobile /> : <Hero3D />}
 
         <div className="container mx-auto px-6 text-center relative z-10">
           <motion.div

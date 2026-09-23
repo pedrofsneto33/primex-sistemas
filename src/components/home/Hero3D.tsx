@@ -249,6 +249,20 @@ export default function Hero3D(): React.JSX.Element {
 
   return (
     <div className="absolute inset-0 -z-10">
+      {/* Camadas CSS animadas (leves, mobile-friendly) */}
+      <div className="hero-animated-bg" aria-hidden="true" />
+      <div className="hero-glow-center" aria-hidden="true" />
+      <div className="hero-ring" aria-hidden="true" />
+      <div className="hero-particles" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+        <span />
+      </div>
       <Canvas
         camera={{ position: [0, 0, 5], fov: 45 }}
         dpr={isMobile ? 1 : [1, 2]}

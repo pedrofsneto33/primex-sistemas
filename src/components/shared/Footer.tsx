@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import { Camera, Mail, Phone } from "lucide-react"
 import { Logo } from "@/components/shared/Logo"
@@ -130,6 +132,17 @@ export function Footer() {
             <Link href="/termos" className="hover:text-primex-green transition-colors">
               Termos de Uso
             </Link>
+            <span className="text-primex-gray-700">•</span>
+            <button
+              type="button"
+              onClick={() => {
+                localStorage.removeItem("primex-cookie-consent")
+                window.location.reload()
+              }}
+              className="hover:text-primex-green transition-colors"
+            >
+              Preferências de Cookies
+            </button>
           </div>
           <div className="text-center sm:text-left space-y-1">
             <p className="text-primex-gray-300 text-xs">

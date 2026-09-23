@@ -6,6 +6,7 @@ import { Footer } from "@/components/shared/Footer"
 import { ScrollProgress } from "@/components/shared/ScrollProgress"
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton"
 import { BackToTop } from "@/components/shared/BackToTop"
+import { CookieBanner } from "@/components/shared/CookieBanner"
 import "./globals.css"
 
 // Fontes do Google via next/font (hospedadas no Vercel, zero FOIT)
@@ -122,6 +123,7 @@ export default function RootLayout({
           <Footer />
           <WhatsAppButton />
           <BackToTop />
+          <CookieBanner />
         </TooltipProvider>
       </body>
     </html>

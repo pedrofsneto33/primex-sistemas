@@ -7,18 +7,13 @@ import { EffectComposer, Bloom } from "@react-three/postprocessing"
 import { useReducedMotion } from "motion/react"
 import * as THREE from "three"
 
-/** Detecta mobile por largura ou user-agent. */
+/** Detecta mobile por largura de tela. */
 function useIsMobile(): boolean {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const check = (): void => {
-      const mobile =
-        window.innerWidth < 768 ||
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-          navigator.userAgent
-        )
-      setIsMobile(mobile)
+      setIsMobile(window.innerWidth < 768)
     }
     check()
     window.addEventListener("resize", check)
@@ -73,7 +68,7 @@ function OrbitRings() {
   const ring2Ref = useRef<THREE.Mesh>(null)
 
   const geometry = useMemo(
-    () => new THREE.TorusGeometry(2.2, 0.03, 8, 60),
+    () => new THREE.TorusGeometry(2.2, 0.03, 16, 100),
     []
   )
 
@@ -87,7 +82,7 @@ function OrbitRings() {
     []
   )
 
-  useFrame((_state, delta) => {
+  useFrame((state, delta) => {
     if (ring1Ref.current) {
       ring1Ref.current.rotation.x += delta * 0.3
       ring1Ref.current.rotation.y += delta * 0.2
@@ -138,7 +133,7 @@ function Particles({ count }: { count: number }) {
   }, [count])
 
   const particleGeometry = useMemo(
-    () => new THREE.SphereGeometry(0.02, 6, 6),
+    () => new THREE.SphereGeometry(0.02, 8, 8),
     []
   )
 
@@ -168,7 +163,7 @@ function Particles({ count }: { count: number }) {
     return m
   }, [particleGeometry, particleMaterial, positions, dummy, count])
 
-  useFrame((_state, delta) => {
+  useFrame((state, delta) => {
     if (meshRef.current) {
       meshRef.current.rotation.y += delta * 0.02
     }
@@ -177,7 +172,7 @@ function Particles({ count }: { count: number }) {
   return <primitive ref={meshRef} object={instancedMesh} />
 }
 
-/** Fallback estático quando WebGL indisponível ou reduced motion. */
+/** Fallback estatico quando reduced motion. */
 function StaticFallback(): React.JSX.Element {
   return (
     <div
@@ -217,38 +212,17 @@ function Scene({ isMobile }: { isMobile: boolean }): React.JSX.Element {
   )
 }
 
-function isWebGLAvailable(): boolean {
-  try {
-    const canvas = document.createElement("canvas")
-    return !!(
-      window.WebGLRenderingContext &&
-      (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
-    )
-  } catch {
-    return false
-  }
-}
-
 export default function Hero3D(): React.JSX.Element {
   const shouldReduceMotion = useReducedMotion()
   const isMobile = useIsMobile()
-  const [webglOk, setWebglOk] = useState<boolean | null>(null)
 
-  useEffect(() => {
-    setWebglOk(isWebGLAvailable())
-  }, [])
-
-  if (webglOk === null) {
-    return <StaticFallback />
-  }
-
-  if (shouldReduceMotion || !webglOk) {
+  if (shouldReduceMotion) {
     return <StaticFallback />
   }
 
   return (
     <div className="absolute inset-0 -z-10">
-      {/* Camadas CSS animadas (leves, mobile-friendly) */}
+      {/* Camadas CSS animadas (leves, ficam ATRAS do Canvas) */}
       <div className="hero-animated-bg" aria-hidden="true" />
       <div className="hero-glow-center" aria-hidden="true" />
       <div className="hero-ring" aria-hidden="true" />
@@ -262,6 +236,7 @@ export default function Hero3D(): React.JSX.Element {
         <span />
         <span />
       </div>
+      {/* Canvas 3D (transparente para mostrar CSS atras) */}
       <Canvas
         camera={{ position: [0, 0, 5], fov: 45 }}
         dpr={isMobile ? 1 : [1, 2]}
@@ -270,7 +245,7 @@ export default function Hero3D(): React.JSX.Element {
           alpha: true,
           powerPreference: isMobile ? "default" : "high-performance",
         }}
-        frameloop={isMobile ? "demand" : "always"}
+        frameloop="always"
         style={{ width: "100%", height: "100%", background: "transparent" }}
       >
         <Suspense fallback={null}>

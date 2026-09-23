@@ -1,15 +1,40 @@
 "use client"
 
-import { Suspense, useMemo, useRef } from "react"
+import { Suspense, useMemo, useRef, useState, useEffect } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Float } from "@react-three/drei"
 import { EffectComposer, Bloom } from "@react-three/postprocessing"
+import { useReducedMotion } from "motion/react"
 import * as THREE from "three"
 
-function CoreShape() {
+/** Detecta mobile por largura ou user-agent. */
+function useIsMobile(): boolean {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const check = (): void => {
+      const mobile =
+        window.innerWidth < 768 ||
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        )
+      setIsMobile(mobile)
+    }
+    check()
+    window.addEventListener("resize", check)
+    return () => window.removeEventListener("resize", check)
+  }, [])
+
+  return isMobile
+}
+
+function CoreShape({ isMobile }: { isMobile: boolean }) {
   const meshRef = useRef<THREE.Mesh>(null)
 
-  const geometry = useMemo(() => new THREE.IcosahedronGeometry(1.4, 1), [])
+  const geometry = useMemo(
+    () => new THREE.IcosahedronGeometry(1.4, isMobile ? 0 : 1),
+    [isMobile]
+  )
 
   const material = useMemo(
     () =>
@@ -17,12 +42,12 @@ function CoreShape() {
         color: "#00C853",
         emissive: "#00C853",
         emissiveIntensity: 0.4,
-        metalness: 0.9,
+        metalness: isMobile ? 0.6 : 0.9,
         roughness: 0.15,
-        clearcoat: 1,
+        clearcoat: isMobile ? 0 : 1,
         clearcoatRoughness: 0.1,
       }),
-    []
+    [isMobile]
   )
 
   useFrame((state, delta) => {
@@ -30,10 +55,12 @@ function CoreShape() {
     meshRef.current.rotation.x += delta * 0.15
     meshRef.current.rotation.y += delta * 0.2
 
-    const targetX = state.pointer.y * 0.15
-    const targetY = state.pointer.x * 0.15
-    meshRef.current.rotation.x += (targetX - meshRef.current.rotation.x) * 0.02
-    meshRef.current.rotation.y += (targetY - meshRef.current.rotation.y) * 0.02
+    if (!isMobile) {
+      const targetX = state.pointer.y * 0.15
+      const targetY = state.pointer.x * 0.15
+      meshRef.current.rotation.x += (targetX - meshRef.current.rotation.x) * 0.02
+      meshRef.current.rotation.y += (targetY - meshRef.current.rotation.y) * 0.02
+    }
 
     meshRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.08
   })
@@ -46,7 +73,7 @@ function OrbitRings() {
   const ring2Ref = useRef<THREE.Mesh>(null)
 
   const geometry = useMemo(
-    () => new THREE.TorusGeometry(2.2, 0.03, 16, 100),
+    () => new THREE.TorusGeometry(2.2, 0.03, 8, 60),
     []
   )
 
@@ -60,7 +87,7 @@ function OrbitRings() {
     []
   )
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (ring1Ref.current) {
       ring1Ref.current.rotation.x += delta * 0.3
       ring1Ref.current.rotation.y += delta * 0.2
@@ -89,9 +116,8 @@ function OrbitRings() {
   )
 }
 
-function Particles() {
+function Particles({ count }: { count: number }) {
   const meshRef = useRef<THREE.InstancedMesh>(null)
-  const count = 250
   const dummy = useMemo(() => new THREE.Object3D(), [])
 
   const positions = useMemo(() => {
@@ -109,10 +135,10 @@ function Particles() {
       )
     }
     return pos
-  }, [])
+  }, [count])
 
   const particleGeometry = useMemo(
-    () => new THREE.SphereGeometry(0.02, 8, 8),
+    () => new THREE.SphereGeometry(0.02, 6, 6),
     []
   )
 
@@ -140,9 +166,9 @@ function Particles() {
     }
     m.instanceMatrix.needsUpdate = true
     return m
-  }, [particleGeometry, particleMaterial, positions, dummy])
+  }, [particleGeometry, particleMaterial, positions, dummy, count])
 
-  useFrame((state, delta) => {
+  useFrame((_state, delta) => {
     if (meshRef.current) {
       meshRef.current.rotation.y += delta * 0.02
     }
@@ -151,33 +177,91 @@ function Particles() {
   return <primitive ref={meshRef} object={instancedMesh} />
 }
 
-export default function Hero3D() {
+/** Fallback estático quando WebGL indisponível ou reduced motion. */
+function StaticFallback(): React.JSX.Element {
+  return (
+    <div
+      className="absolute inset-0 -z-10"
+      style={{
+        background:
+          "radial-gradient(circle at 50% 50%, rgba(0,200,83,0.25) 0%, rgba(10,10,10,1) 60%)",
+      }}
+    />
+  )
+}
+
+function Scene({ isMobile }: { isMobile: boolean }): React.JSX.Element {
+  return (
+    <>
+      <color attach="background" args={["#0A0A0A"]} />
+      <ambientLight intensity={isMobile ? 0.6 : 0.4} />
+      <pointLight position={[5, 5, 5]} intensity={isMobile ? 1.5 : 2} color="#00C853" />
+      {!isMobile && (
+        <pointLight position={[-5, -5, -5]} intensity={1} color="#00E676" />
+      )}
+      <Float speed={1.5} rotationIntensity={0.4} floatIntensity={0.6}>
+        <CoreShape isMobile={isMobile} />
+      </Float>
+      {!isMobile && <OrbitRings />}
+      <Particles count={isMobile ? 80 : 250} />
+      {!isMobile && (
+        <EffectComposer>
+          <Bloom
+            intensity={0.8}
+            luminanceThreshold={0.2}
+            luminanceSmoothing={0.9}
+            mipmapBlur
+          />
+        </EffectComposer>
+      )}
+    </>
+  )
+}
+
+function isWebGLAvailable(): boolean {
+  try {
+    const canvas = document.createElement("canvas")
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
+    )
+  } catch {
+    return false
+  }
+}
+
+export default function Hero3D(): React.JSX.Element {
+  const shouldReduceMotion = useReducedMotion()
+  const isMobile = useIsMobile()
+  const [webglOk, setWebglOk] = useState<boolean | null>(null)
+
+  useEffect(() => {
+    setWebglOk(isWebGLAvailable())
+  }, [])
+
+  if (webglOk === null) {
+    return <StaticFallback />
+  }
+
+  if (shouldReduceMotion || !webglOk) {
+    return <StaticFallback />
+  }
+
   return (
     <div className="absolute inset-0 -z-10">
       <Canvas
         camera={{ position: [0, 0, 5], fov: 45 }}
-        dpr={[1, 2]}
-        gl={{ antialias: true, alpha: false }}
+        dpr={isMobile ? 1 : [1, 2]}
+        gl={{
+          antialias: !isMobile,
+          alpha: false,
+          powerPreference: isMobile ? "default" : "high-performance",
+        }}
+        frameloop={isMobile ? "demand" : "always"}
         style={{ width: "100%", height: "100%", background: "#0A0A0A" }}
       >
         <Suspense fallback={null}>
-          <color attach="background" args={["#0A0A0A"]} />
-          <ambientLight intensity={0.4} />
-          <pointLight position={[5, 5, 5]} intensity={2} color="#00C853" />
-          <pointLight position={[-5, -5, -5]} intensity={1} color="#00E676" />
-          <Float speed={1.5} rotationIntensity={0.4} floatIntensity={0.6}>
-            <CoreShape />
-          </Float>
-          <OrbitRings />
-          <Particles />
-          <EffectComposer>
-            <Bloom
-              intensity={0.8}
-              luminanceThreshold={0.2}
-              luminanceSmoothing={0.9}
-              mipmapBlur
-            />
-          </EffectComposer>
+          <Scene isMobile={isMobile} />
         </Suspense>
       </Canvas>
     </div>

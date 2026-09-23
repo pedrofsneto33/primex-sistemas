@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useMemo, useRef } from "react";
+import { Suspense, useMemo, useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float } from "@react-three/drei";
 import { useReducedMotion } from "motion/react";
@@ -85,26 +85,87 @@ function StaticFallback(): React.JSX.Element {
 
 export default function Hero3DMobile(): React.JSX.Element {
   const shouldReduceMotion = useReducedMotion();
-  if (shouldReduceMotion) return <StaticFallback />;
-  return (
-    <div className="absolute inset-0 -z-10">
-      <Canvas
-        camera={{ position: [0, 0, 5], fov: 45 }}
-        dpr={1}
-        gl={{ antialias: false, alpha: false, powerPreference: "default", stencil: false, depth: true }}
-        frameloop="always"
-        style={{ width: "100%", height: "100%", background: "#0A0A0A" }}
-      >
-        <Suspense fallback={null}>
-          <color attach="background" args={["#0A0A0A"]} />
-          <ambientLight intensity={0.8} />
-          <pointLight position={[5, 5, 5]} intensity={2} color="#00C853" />
-          <Float speed={1.2} rotationIntensity={0.3} floatIntensity={0.5}>
-            <CoreShape />
-          </Float>
-          <Particles count={60} />
-        </Suspense>
-      </Canvas>
+  const [webglOk, setWebglOk] = useState<boolean | null>(null);
+  const [debugInfo, setDebugInfo] = useState<string>("");
+
+  useEffect(() => {
+    let ok = false;
+    try {
+      const canvas = document.createElement("canvas");
+      ok = !!(
+        window.WebGLRenderingContext &&
+        (canvas.getContext("webgl") || canvas.getContext("experimental-webgl"))
+      );
+    } catch {
+      ok = false;
+    }
+    setWebglOk(ok);
+    setDebugInfo(
+      `Width: ${window.innerWidth} | WebGL: ${ok ? "SIM" : "NAO"} | ReducedMotion: ${shouldReduceMotion ? "SIM" : "NAO"}`
+    );
+  }, [shouldReduceMotion]);
+
+  const DebugOverlay = (): React.JSX.Element => (
+    <div
+      style={{
+        position: "fixed",
+        bottom: 8,
+        left: 8,
+        right: 8,
+        background: "rgba(0,0,0,0.9)",
+        color: "#00C853",
+        padding: "8px 12px",
+        borderRadius: 8,
+        fontSize: 12,
+        fontFamily: "monospace",
+        zIndex: 9999,
+        border: "1px solid #00C853",
+      }}
+    >
+      DEBUG: {debugInfo}
     </div>
+  );
+
+  if (webglOk === null) {
+    return (
+      <>
+        <StaticFallback />
+        <DebugOverlay />
+      </>
+    );
+  }
+
+  if (shouldReduceMotion || !webglOk) {
+    return (
+      <>
+        <StaticFallback />
+        <DebugOverlay />
+      </>
+    );
+  }
+
+  return (
+    <>
+      <div className="absolute inset-0 -z-10">
+        <Canvas
+          camera={{ position: [0, 0, 5], fov: 45 }}
+          dpr={1}
+          gl={{ antialias: false, alpha: false, powerPreference: "default", stencil: false }}
+          frameloop="always"
+          style={{ width: "100%", height: "100%", background: "#0A0A0A" }}
+        >
+          <Suspense fallback={null}>
+            <color attach="background" args={["#0A0A0A"]} />
+            <ambientLight intensity={0.8} />
+            <pointLight position={[5, 5, 5]} intensity={2} color="#00C853" />
+            <Float speed={1.2} rotationIntensity={0.3} floatIntensity={0.5}>
+              <CoreShape />
+            </Float>
+            <Particles count={60} />
+          </Suspense>
+        </Canvas>
+      </div>
+      <DebugOverlay />
+    </>
   );
 }

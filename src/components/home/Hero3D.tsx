@@ -1,35 +1,15 @@
 "use client"
 
-import { Suspense, useMemo, useRef, useState, useEffect } from "react"
+import { Suspense, useMemo, useRef } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Float } from "@react-three/drei"
 import { EffectComposer, Bloom } from "@react-three/postprocessing"
-import { useReducedMotion } from "motion/react"
 import * as THREE from "three"
 
-/** Detecta mobile por largura de tela. */
-function useIsMobile(): boolean {
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const check = (): void => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    check()
-    window.addEventListener("resize", check)
-    return () => window.removeEventListener("resize", check)
-  }, [])
-
-  return isMobile
-}
-
-function CoreShape({ isMobile }: { isMobile: boolean }) {
+function CoreShape() {
   const meshRef = useRef<THREE.Mesh>(null)
 
-  const geometry = useMemo(
-    () => new THREE.IcosahedronGeometry(1.4, isMobile ? 0 : 1),
-    [isMobile]
-  )
+  const geometry = useMemo(() => new THREE.IcosahedronGeometry(1.4, 1), [])
 
   const material = useMemo(
     () =>
@@ -37,12 +17,12 @@ function CoreShape({ isMobile }: { isMobile: boolean }) {
         color: "#00C853",
         emissive: "#00C853",
         emissiveIntensity: 0.4,
-        metalness: isMobile ? 0.6 : 0.9,
+        metalness: 0.9,
         roughness: 0.15,
-        clearcoat: isMobile ? 0 : 1,
+        clearcoat: 1,
         clearcoatRoughness: 0.1,
       }),
-    [isMobile]
+    []
   )
 
   useFrame((state, delta) => {
@@ -50,12 +30,10 @@ function CoreShape({ isMobile }: { isMobile: boolean }) {
     meshRef.current.rotation.x += delta * 0.15
     meshRef.current.rotation.y += delta * 0.2
 
-    if (!isMobile) {
-      const targetX = state.pointer.y * 0.15
-      const targetY = state.pointer.x * 0.15
-      meshRef.current.rotation.x += (targetX - meshRef.current.rotation.x) * 0.02
-      meshRef.current.rotation.y += (targetY - meshRef.current.rotation.y) * 0.02
-    }
+    const targetX = state.pointer.y * 0.15
+    const targetY = state.pointer.x * 0.15
+    meshRef.current.rotation.x += (targetX - meshRef.current.rotation.x) * 0.02
+    meshRef.current.rotation.y += (targetY - meshRef.current.rotation.y) * 0.02
 
     meshRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.08
   })
@@ -111,8 +89,9 @@ function OrbitRings() {
   )
 }
 
-function Particles({ count }: { count: number }) {
+function Particles() {
   const meshRef = useRef<THREE.InstancedMesh>(null)
+  const count = 250
   const dummy = useMemo(() => new THREE.Object3D(), [])
 
   const positions = useMemo(() => {
@@ -130,7 +109,7 @@ function Particles({ count }: { count: number }) {
       )
     }
     return pos
-  }, [count])
+  }, [])
 
   const particleGeometry = useMemo(
     () => new THREE.SphereGeometry(0.02, 8, 8),
@@ -161,7 +140,7 @@ function Particles({ count }: { count: number }) {
     }
     m.instanceMatrix.needsUpdate = true
     return m
-  }, [particleGeometry, particleMaterial, positions, dummy, count])
+  }, [particleGeometry, particleMaterial, positions, dummy])
 
   useFrame((state, delta) => {
     if (meshRef.current) {
@@ -172,84 +151,33 @@ function Particles({ count }: { count: number }) {
   return <primitive ref={meshRef} object={instancedMesh} />
 }
 
-/** Fallback estatico quando reduced motion. */
-function StaticFallback(): React.JSX.Element {
-  return (
-    <div
-      className="absolute inset-0 -z-10"
-      style={{
-        background:
-          "radial-gradient(circle at 50% 50%, rgba(0,200,83,0.25) 0%, rgba(10,10,10,1) 60%)",
-      }}
-    />
-  )
-}
-
-function Scene({ isMobile }: { isMobile: boolean }): React.JSX.Element {
-  return (
-    <>
-      <ambientLight intensity={isMobile ? 0.6 : 0.4} />
-      <pointLight position={[5, 5, 5]} intensity={isMobile ? 1.5 : 2} color="#00C853" />
-      {!isMobile && (
-        <pointLight position={[-5, -5, -5]} intensity={1} color="#00E676" />
-      )}
-      <Float speed={1.5} rotationIntensity={0.4} floatIntensity={0.6}>
-        <CoreShape isMobile={isMobile} />
-      </Float>
-      {!isMobile && <OrbitRings />}
-      <Particles count={isMobile ? 80 : 250} />
-      {!isMobile && (
-        <EffectComposer>
-          <Bloom
-            intensity={0.8}
-            luminanceThreshold={0.2}
-            luminanceSmoothing={0.9}
-            mipmapBlur
-          />
-        </EffectComposer>
-      )}
-    </>
-  )
-}
-
-export default function Hero3D(): React.JSX.Element {
-  const shouldReduceMotion = useReducedMotion()
-  const isMobile = useIsMobile()
-
-  if (shouldReduceMotion) {
-    return <StaticFallback />
-  }
-
+export default function Hero3D() {
   return (
     <div className="absolute inset-0 -z-10">
-      {/* Camadas CSS animadas (leves, ficam ATRAS do Canvas) */}
-      <div className="hero-animated-bg" aria-hidden="true" />
-      <div className="hero-glow-center" aria-hidden="true" />
-      <div className="hero-ring" aria-hidden="true" />
-      <div className="hero-particles" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-        <span />
-      </div>
-      {/* Canvas 3D (transparente para mostrar CSS atras) */}
       <Canvas
         camera={{ position: [0, 0, 5], fov: 45 }}
-        dpr={isMobile ? 1 : [1, 2]}
-        gl={{
-          antialias: !isMobile,
-          alpha: true,
-          powerPreference: isMobile ? "default" : "high-performance",
-        }}
-        frameloop="always"
-        style={{ width: "100%", height: "100%", background: "transparent" }}
+        dpr={[1, 2]}
+        gl={{ antialias: true, alpha: false }}
+        style={{ width: "100%", height: "100%", background: "#0A0A0A" }}
       >
         <Suspense fallback={null}>
-          <Scene isMobile={isMobile} />
+          <color attach="background" args={["#0A0A0A"]} />
+          <ambientLight intensity={0.4} />
+          <pointLight position={[5, 5, 5]} intensity={2} color="#00C853" />
+          <pointLight position={[-5, -5, -5]} intensity={1} color="#00E676" />
+          <Float speed={1.5} rotationIntensity={0.4} floatIntensity={0.6}>
+            <CoreShape />
+          </Float>
+          <OrbitRings />
+          <Particles />
+          <EffectComposer>
+            <Bloom
+              intensity={0.8}
+              luminanceThreshold={0.2}
+              luminanceSmoothing={0.9}
+              mipmapBlur
+            />
+          </EffectComposer>
         </Suspense>
       </Canvas>
     </div>

@@ -193,7 +193,6 @@ function StaticFallback(): React.JSX.Element {
 function Scene({ isMobile }: { isMobile: boolean }): React.JSX.Element {
   return (
     <>
-      <color attach="background" args={["#0A0A0A"]} />
       <ambientLight intensity={isMobile ? 0.6 : 0.4} />
       <pointLight position={[5, 5, 5]} intensity={isMobile ? 1.5 : 2} color="#00C853" />
       {!isMobile && (
@@ -268,11 +267,11 @@ export default function Hero3D(): React.JSX.Element {
         dpr={isMobile ? 1 : [1, 2]}
         gl={{
           antialias: !isMobile,
-          alpha: false,
+          alpha: true,
           powerPreference: isMobile ? "default" : "high-performance",
         }}
         frameloop={isMobile ? "demand" : "always"}
-        style={{ width: "100%", height: "100%", background: "#0A0A0A" }}
+        style={{ width: "100%", height: "100%", background: "transparent" }}
       >
         <Suspense fallback={null}>
           <Scene isMobile={isMobile} />

@@ -22,13 +22,6 @@ const Hero3D = dynamic(() => import("@/components/home/Hero3D"), {
   ),
 })
 
-const Hero3DMobile = dynamic(() => import("@/components/home/Hero3DMobile"), {
-  ssr: false,
-  loading: () => (
-    <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primex-black via-primex-dark to-primex-black" />
-  ),
-})
-
 export default function Home() {
   const [isMobile, setIsMobile] = useState(false)
 
@@ -42,8 +35,9 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-[100svh] sm:min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-12 sm:pt-0 sm:pb-0">
-        {isMobile ? <Hero3DMobile /> : <Hero3D />}
+      <section className="relative min-h-[100svh] sm:min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-12 sm:pt-0 sm:pb-0 bg-primex-black sm:bg-transparent">
+        <div className="absolute inset-0 -z-10 sm:hidden bg-[radial-gradient(circle_at_50%_40%,rgba(0,200,83,0.15)_0%,rgba(10,10,10,1)_60%)]" aria-hidden="true" />
+        {!isMobile && <Hero3D />}
 
         <div className="container mx-auto px-4 sm:px-6 text-center relative z-10 max-w-4xl">
           <motion.div

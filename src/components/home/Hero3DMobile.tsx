@@ -65,7 +65,7 @@ function Particles({ count }: { count: number }): React.JSX.Element {
     m.instanceMatrix.needsUpdate = true;
     return m;
   }, [particleGeometry, particleMaterial, positions, dummy, count]);
-  useFrame((_state, delta) => {
+  useFrame((state, delta) => {
     if (meshRef.current) meshRef.current.rotation.y += delta * 0.02;
   });
   return <primitive ref={meshRef} object={instancedMesh} />;
@@ -77,7 +77,7 @@ function StaticFallback(): React.JSX.Element {
       className="absolute inset-0 -z-10"
       style={{
         background:
-          "radial-gradient(circle at 50% 50%, rgba(0,200,83,0.3) 0%, rgba(10,10,10,1) 65%)",
+          "radial-gradient(circle at 50% 50%, rgba(0,200,83,0.35) 0%, rgba(10,10,10,1) 65%)",
       }}
     />
   );
@@ -91,18 +91,18 @@ export default function Hero3DMobile(): React.JSX.Element {
       <Canvas
         camera={{ position: [0, 0, 5], fov: 45 }}
         dpr={1}
-        gl={{ antialias: false, alpha: false, powerPreference: "default" }}
+        gl={{ antialias: false, alpha: false, powerPreference: "default", stencil: false, depth: true }}
         frameloop="always"
         style={{ width: "100%", height: "100%", background: "#0A0A0A" }}
       >
         <Suspense fallback={null}>
           <color attach="background" args={["#0A0A0A"]} />
-          <ambientLight intensity={0.7} />
-          <pointLight position={[5, 5, 5]} intensity={1.8} color="#00C853" />
-          <Float speed={1.5} rotationIntensity={0.3} floatIntensity={0.5}>
+          <ambientLight intensity={0.8} />
+          <pointLight position={[5, 5, 5]} intensity={2} color="#00C853" />
+          <Float speed={1.2} rotationIntensity={0.3} floatIntensity={0.5}>
             <CoreShape />
           </Float>
-          <Particles count={80} />
+          <Particles count={60} />
         </Suspense>
       </Canvas>
     </div>

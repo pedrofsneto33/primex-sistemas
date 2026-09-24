@@ -24,6 +24,7 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://primex-sistemas.vercel.app"),
   title: "Primex Sistemas — Soluções Inteligentes",
   description:
     "Desenvolvimento de softwares e soluções inteligentes para transformar seu negócio. Soluções em web, mobile, sistemas sob medida e IA.",

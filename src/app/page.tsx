@@ -12,6 +12,8 @@ import SectorsSection from "@/components/home/SectorsSection"
 import SocialProof from "@/components/home/SocialProof"
 import FaqSection from "@/components/home/FaqSection"
 import CtaSection from "@/components/home/CtaSection"
+import { ErrorBoundary } from "@/components/shared/ErrorBoundary"
+import { Hero3DFallback } from "@/components/home/Hero3DFallback"
 
 // Hero 3D carregado apenas no cliente (SSR off por causa do WebGL)
 const Hero3D = dynamic(() => import("@/components/home/Hero3D"), {
@@ -26,7 +28,9 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <Hero3D />
+        <ErrorBoundary fallback={<Hero3DFallback />}>
+          <Hero3D />
+        </ErrorBoundary>
 
         <div className="container mx-auto px-6 text-center relative z-10">
           <motion.div

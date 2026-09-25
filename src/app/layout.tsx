@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Script from "next/script"
 import { Inter, Space_Grotesk } from "next/font/google"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Navbar } from "@/components/shared/Navbar"
@@ -117,6 +118,107 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col bg-primex-black text-primex-white antialiased">
+        <Script
+          id="ld-json-organization"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Primex Sistemas",
+              legalName: "PRIMEX SISTEMAS LTDA",
+              url: "https://primex-sistemas.vercel.app",
+              logo: "https://primex-sistemas.vercel.app/brand/logo-horizontal-verde-preto.svg",
+              description:
+                "Empresa de desenvolvimento de software e soluções inteligentes com sede em Teresina (PI), atendendo todo o Brasil.",
+              email: "pedrofsneto33@gmail.com",
+              telephone: "+55-86-98811-7925",
+              taxID: "55.536.885/0001-30",
+              foundingDate: "2018",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Teresina",
+                addressRegion: "PI",
+                addressCountry: "BR",
+              },
+              areaServed: {
+                "@type": "Country",
+                name: "Brasil",
+              },
+              sameAs: [
+                "https://instagram.com/primexsistemas",
+                "https://github.com/pedrofsneto33/primex-sistemas",
+              ],
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+55-86-98811-7925",
+                contactType: "customer service",
+                areaServed: "BR",
+                availableLanguage: ["Portuguese"],
+              },
+            }),
+          }}
+        />
+        <Script
+          id="ld-json-localbusiness"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "@id": "https://primex-sistemas.vercel.app/#localbusiness",
+              name: "Primex Sistemas",
+              image:
+                "https://primex-sistemas.vercel.app/brand/logo-horizontal-verde-preto.svg",
+              url: "https://primex-sistemas.vercel.app",
+              telephone: "+55-86-98811-7925",
+              email: "pedrofsneto33@gmail.com",
+              priceRange: "$$",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Teresina",
+                addressRegion: "PI",
+                addressCountry: "BR",
+              },
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: -5.08921,
+                longitude: -42.8016,
+              },
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                  ],
+                  opens: "09:00",
+                  closes: "18:00",
+                },
+              ],
+              sameAs: ["https://instagram.com/primexsistemas"],
+            }),
+          }}
+        />
+        <Script
+          id="ld-json-website"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Primex Sistemas",
+              url: "https://primex-sistemas.vercel.app",
+              publisher: {
+                "@type": "Organization",
+                name: "Primex Sistemas",
+              },
+            }),
+          }}
+        />
         <TooltipProvider>
           <ScrollProgress />
           <Navbar />

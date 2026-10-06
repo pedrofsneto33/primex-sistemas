@@ -3,7 +3,7 @@
 import Link from "next/link"
 import dynamic from "next/dynamic"
 import { motion } from "motion/react"
-import { ArrowRight, Sparkles } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import ServicesSection from "@/components/home/ServicesSection"
 import ProcessSection from "@/components/home/ProcessSection"
@@ -35,17 +35,6 @@ export default function Home() {
         </ErrorBoundary>
 
         <div className="container mx-auto px-6 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full border border-primex-green/30 bg-primex-green/5 text-primex-green text-sm font-medium">
-              <Sparkles className="w-4 h-4" />
-              Soluções Inteligentes
-            </span>
-          </motion.div>
-
           <motion.h1
             className="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-primex-white mb-6 tracking-tight"
             initial={{ opacity: 0, y: 30 }}

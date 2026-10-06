@@ -14,6 +14,7 @@ import ManifestoSection from "@/components/home/ManifestoSection"
 import FaqSection from "@/components/home/FaqSection"
 import CtaSection from "@/components/home/CtaSection"
 import { ErrorBoundary } from "@/components/shared/ErrorBoundary"
+import { MagneticButton } from "@/components/shared/MagneticButton"
 import { Hero3DFallback } from "@/components/home/Hero3DFallback"
 
 // Hero 3D carregado apenas no cliente (SSR off por causa do WebGL)
@@ -71,15 +72,19 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <Button asChild size="lg" className="bg-primex-green hover:bg-primex-green-hover text-primex-black font-semibold">
-              <Link href="/solucoes">
-                Ver Soluções
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-primex-gray-700 text-primex-white hover:bg-primex-gray-900">
-              <Link href="/contato">Fale Conosco</Link>
-            </Button>
+            <MagneticButton strength={30}>
+              <Button asChild size="lg" className="bg-primex-green hover:bg-primex-green-hover text-primex-black font-semibold">
+                <Link href="/solucoes">
+                  Ver Soluções
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </Button>
+            </MagneticButton>
+            <MagneticButton strength={30}>
+              <Button asChild size="lg" variant="outline" className="border-primex-gray-700 text-primex-white hover:bg-primex-gray-900">
+                <Link href="/contato">Fale Conosco</Link>
+              </Button>
+            </MagneticButton>
           </motion.div>
         </div>
       </section>

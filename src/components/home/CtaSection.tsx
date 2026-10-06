@@ -4,6 +4,7 @@ import { motion } from "motion/react"
 import Link from "next/link"
 import { ArrowRight, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { MagneticButton } from "@/components/shared/MagneticButton"
 
 export default function CtaSection() {
   return (
@@ -64,31 +65,35 @@ export default function CtaSection() {
               transition={{ delay: 0.4 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <Button
-                asChild
-                size="lg"
-                className="bg-primex-green hover:bg-primex-green-hover text-primex-black font-semibold h-14 px-8 text-base"
-              >
-                <Link href="/contato">
-                  Iniciar Projeto
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-primex-gray-700 text-primex-white hover:bg-primex-gray-900 h-14 px-8 text-base"
-              >
-                <a
-                  href="https://wa.me/5586988117925?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Primex%20Sistemas."
-                  target="_blank"
-                  rel="noopener noreferrer"
+              <MagneticButton strength={30}>
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-primex-green hover:bg-primex-green-hover text-primex-black font-semibold h-14 px-8 text-base"
                 >
-                  <MessageCircle className="mr-2 w-5 h-5" />
-                  Falar no WhatsApp
-                </a>
-              </Button>
+                  <Link href="/contato">
+                    Iniciar Projeto
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Link>
+                </Button>
+              </MagneticButton>
+              <MagneticButton strength={30}>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="border-primex-gray-700 text-primex-white hover:bg-primex-gray-900 h-14 px-8 text-base"
+                >
+                  <a
+                    href="https://wa.me/5586988117925?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Primex%20Sistemas."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <MessageCircle className="mr-2 w-5 h-5" />
+                    Falar no WhatsApp
+                  </a>
+                </Button>
+              </MagneticButton>
             </motion.div>
           </div>
         </motion.div>

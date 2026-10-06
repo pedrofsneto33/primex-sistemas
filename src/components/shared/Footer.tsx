@@ -10,6 +10,7 @@ const navItems = {
     { href: "/sobre", label: "Sobre" },
     { href: "/cases", label: "Cases" },
     { href: "/blog", label: "Blog" },
+    { href: "/design", label: "Design System" },
     { href: "/contato", label: "Contato" },
   ],
   servicos: [

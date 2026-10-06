@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Logo } from "@/components/shared/Logo"
+import { SplitText } from "@/components/shared/SplitText"
 import { Button } from "@/components/ui/button"
 
 const navLinks = [
@@ -56,7 +57,7 @@ export function Navbar() {
                 href={link.href}
                 className="text-sm text-primex-gray-100 hover:text-primex-green transition-colors relative group"
               >
-                {link.label}
+                <SplitText text={link.label} />
                 <span className="absolute -bottom-1 left-0 right-0 h-px bg-primex-green scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
               </Link>
             </li>

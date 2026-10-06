@@ -83,7 +83,7 @@ export default function ServicesSection() {
                       "bg-gradient-to-br from-primex-dark to-primex-black",
                       "border-primex-gray-800 hover:border-primex-green/60",
                       "hover:-translate-y-1 hover:shadow-2xl hover:shadow-primex-green/10",
-                      "card-primex card-primex-bordered card-primex-interactive",
+                      "card-primex card-primex-bordered card-primex-interactive card-breathe",
                       isLarge ? "p-8 md:p-10" : "p-6 md:p-8",
                     ].join(" ")}
                   >

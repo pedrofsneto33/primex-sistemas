@@ -289,3 +289,28 @@
   opacity: 0.6;
   pointer-events: none;
 }
+
+/* ============================================
+   MICRO-INTERAÇÕES PRIMEX
+   ============================================ */
+
+/* Card respirando (escala sutil contínua) */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.008);
+  }
+}
+
+.card-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* Respeitar prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .card-breathe {
+    animation: none !important;
+  }
+}

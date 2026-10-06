@@ -52,7 +52,7 @@ const sectors: Sector[] = [
 
 export default function SectorsSection() {
   return (
-    <section className="py-24 px-6 bg-primex-dark relative overflow-hidden">
+    <section className="py-24 px-6 bg-primex-dark relative overflow-hidden section-top-line">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,200,83,0.06),transparent_60%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -98,7 +98,7 @@ export default function SectorsSection() {
                 transition={{ delay: index * 0.08, duration: 0.5 }}
                 className="group"
               >
-                <div className="relative h-full rounded-2xl border border-primex-gray-800 bg-primex-black/60 backdrop-blur-sm p-5 text-center transition-all duration-300 hover:border-primex-green/60 hover:-translate-y-1 hover:shadow-lg hover:shadow-primex-green/10">
+                <div className="relative h-full card-primex card-primex-bordered border border-primex-gray-800 bg-primex-black/60 backdrop-blur-sm p-5 text-center transition-all duration-300 hover:border-primex-green/60 hover:-translate-y-1 hover:shadow-lg hover:shadow-primex-green/10">
                   <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primex-green/10 border border-primex-green/20 mb-3 transition-colors group-hover:bg-primex-green/20">
                     <Icon size={22} className="text-primex-green" strokeWidth={1.8} />
                   </div>

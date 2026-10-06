@@ -204,3 +204,88 @@
     transform: translateX(-50%);
   }
 }
+
+/* ============================================
+   SISTEMA VISUAL PRIMEX — ELEMENTOS PROPRIETÁRIOS
+   ============================================ */
+
+/* Card com cantos cortados em ângulo (assinatura Primex) */
+.card-primex {
+  position: relative;
+  clip-path: polygon(
+    0 16px,
+    16px 0,
+    100% 0,
+    100% calc(100% - 16px),
+    calc(100% - 16px) 100%,
+    0 100%
+  );
+}
+
+/* Borda verde simulada com máscara (funciona com o clip-path) */
+.card-primex-bordered::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 200, 83, 0.5) 0%,
+    rgba(0, 200, 83, 0.1) 40%,
+    rgba(0, 200, 83, 0.1) 60%,
+    rgba(0, 200, 83, 0.5) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hover com glow verde Primex nos cards cortados */
+.card-primex-interactive {
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+.card-primex-interactive:hover {
+  box-shadow: 0 0 50px rgba(0, 200, 83, 0.18);
+}
+
+/* Linha verde luminosa no topo de seções */
+.section-top-line {
+  position: relative;
+}
+.section-top-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 800px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 200, 83, 0.6) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Marca de canto Primex (triângulo verde no canto superior esquerdo) */
+.corner-mark {
+  position: relative;
+}
+.corner-mark::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 20px solid #00C853;
+  border-right: 20px solid transparent;
+  opacity: 0.6;
+  pointer-events: none;
+}

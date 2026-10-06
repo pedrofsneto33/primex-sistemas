@@ -33,7 +33,7 @@ export function BlogCard({ post, index }: BlogCardProps): React.JSX.Element {
       className="h-full"
     >
       <Link href={`/blog/${post.slug}`} className="block h-full">
-        <article className="group relative flex h-full flex-col rounded-2xl border border-primex-gray-800 bg-primex-dark overflow-hidden transition-all duration-300 hover:border-primex-green/60 hover:-translate-y-1 hover:shadow-xl hover:shadow-primex-green/5">
+        <article className="group relative flex h-full flex-col border border-primex-gray-800 bg-primex-dark overflow-hidden card-primex card-primex-bordered card-primex-interactive transition-all duration-300 hover:border-primex-green/60 hover:-translate-y-1 hover:shadow-xl hover:shadow-primex-green/5">
           {/* Cover */}
           <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-primex-green/20 via-primex-dark to-primex-black">
             {showImage ? (

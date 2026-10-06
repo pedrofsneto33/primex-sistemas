@@ -56,7 +56,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export default function StatsSection() {
   return (
-    <section className="py-24 px-6 bg-primex-black relative overflow-hidden">
+    <section className="py-24 px-6 bg-primex-black relative overflow-hidden section-top-line">
       {/* Grid de fundo sutil */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,200,83,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,200,83,0.03)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
 

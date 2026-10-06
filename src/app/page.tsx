@@ -6,7 +6,6 @@ import { motion } from "motion/react"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import ServicesSection from "@/components/home/ServicesSection"
-import ProcessSection from "@/components/home/ProcessSection"
 import StatsSection from "@/components/home/StatsSection"
 import SectorsSection from "@/components/home/SectorsSection"
 import SocialProof from "@/components/home/SocialProof"
@@ -86,9 +85,6 @@ export default function Home() {
 
       {/* PROVA SOCIAL */}
       <SocialProof />
-
-      {/* PROCESSO */}
-      <ProcessSection />
 
       {/* MANIFESTO — COMO PENSAMOS */}
       <ManifestoSection />

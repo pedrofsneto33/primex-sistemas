@@ -42,9 +42,9 @@ export default function CtaSection() {
               transition={{ delay: 0.2 }}
               className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primex-white mb-6 leading-tight"
             >
-              Pronto para transformar
+              Vamos resolver
               <br />
-              <span className="text-primex-green">o seu negócio?</span>
+              <span className="text-primex-green">juntos.</span>
             </motion.h2>
 
             <motion.p
@@ -54,8 +54,8 @@ export default function CtaSection() {
               transition={{ delay: 0.3 }}
               className="text-primex-gray-300 text-lg md:text-xl max-w-2xl mx-auto mb-10"
             >
-              Fale com nossa equipe e descubra como a Primex Sistemas
-              pode acelerar os resultados da sua empresa.
+              Conte-nos o desafio. A Primex apresenta o caminho —
+              sem compromisso, sem enrolação.
             </motion.p>
 
             <motion.div

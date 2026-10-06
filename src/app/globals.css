@@ -24,8 +24,8 @@
   /* ========================================
      FONTES — Variáveis do next/font/google
      ======================================== */
-  --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-display: var(--font-display), system-ui, sans-serif;
+  --font-sans: var(--font-inter-tight), system-ui, sans-serif;
+  --font-display: var(--font-sora), system-ui, sans-serif;
 
   /* Mantendo variáveis do shadcn para compatibilidade dos componentes UI */
   --color-background: var(--background);

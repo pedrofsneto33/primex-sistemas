@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import Script from "next/script"
-import { Inter, Space_Grotesk } from "next/font/google"
+import { Sora, Inter_Tight } from "next/font/google"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Navbar } from "@/components/shared/Navbar"
 import { Footer } from "@/components/shared/Footer"
@@ -11,17 +11,18 @@ import { CookieBanner } from "@/components/shared/CookieBanner"
 import "./globals.css"
 
 // Fontes do Google via next/font (hospedadas no Vercel, zero FOIT)
-const inter = Inter({
+const sora = Sora({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sora",
   display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
 })
 
-const spaceGrotesk = Space_Grotesk({
+const interTight = Inter_Tight({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-display",
+  variable: "--font-inter-tight",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 })
 
 export const metadata: Metadata = {
@@ -88,7 +89,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${inter.variable} ${spaceGrotesk.variable}`}
+      className={`${sora.variable} ${interTight.variable}`}
     >
       <head>
         <meta name="theme-color" content="#0A0A0A" />

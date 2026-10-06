@@ -10,6 +10,7 @@ import ProcessSection from "@/components/home/ProcessSection"
 import StatsSection from "@/components/home/StatsSection"
 import SectorsSection from "@/components/home/SectorsSection"
 import SocialProof from "@/components/home/SocialProof"
+import ManifestoSection from "@/components/home/ManifestoSection"
 import FaqSection from "@/components/home/FaqSection"
 import CtaSection from "@/components/home/CtaSection"
 import { ErrorBoundary } from "@/components/shared/ErrorBoundary"
@@ -94,6 +95,9 @@ export default function Home() {
 
       {/* PROCESSO */}
       <ProcessSection />
+
+      {/* MANIFESTO — COMO PENSAMOS */}
+      <ManifestoSection />
 
       {/* SETORES ATENDIDOS */}
       <SectorsSection />

@@ -4,9 +4,7 @@ import { Sora, Inter_Tight } from "next/font/google"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { Navbar } from "@/components/shared/Navbar"
 import { Footer } from "@/components/shared/Footer"
-import { ScrollProgress } from "@/components/shared/ScrollProgress"
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton"
-import { BackToTop } from "@/components/shared/BackToTop"
 import { CookieBanner } from "@/components/shared/CookieBanner"
 import "./globals.css"
 
@@ -221,12 +219,10 @@ export default function RootLayout({
           }}
         />
         <TooltipProvider>
-          <ScrollProgress />
           <Navbar />
           <main className="flex-1 pt-16">{children}</main>
           <Footer />
           <WhatsAppButton />
-          <BackToTop />
           <CookieBanner />
         </TooltipProvider>
       </body>

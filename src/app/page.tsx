@@ -7,7 +7,6 @@ import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import ServicesSection from "@/components/home/ServicesSection"
 import StatsSection from "@/components/home/StatsSection"
-import SectorsSection from "@/components/home/SectorsSection"
 import SocialProof from "@/components/home/SocialProof"
 import ManifestoSection from "@/components/home/ManifestoSection"
 import FaqSection from "@/components/home/FaqSection"
@@ -88,9 +87,6 @@ export default function Home() {
 
       {/* MANIFESTO — COMO PENSAMOS */}
       <ManifestoSection />
-
-      {/* SETORES ATENDIDOS */}
-      <SectorsSection />
 
       {/* FAQ */}
       <FaqSection />

@@ -61,21 +61,25 @@ export function CaseCard({ caseItem, index }: CaseCardProps) {
       <TiltCard intensity={6} className="h-full">
         <Card className="h-full bg-primex-dark border-primex-gray-800 hover:border-primex-green transition-all duration-300 flex flex-col group transition-shadow duration-300 hover:shadow-2xl hover:shadow-primex-green/20">
         {/* Header / Vídeo ou placeholder de imagem */}
-        <div className="relative aspect-video w-full group/video bg-gradient-to-br from-primex-green/20 via-primex-dark to-primex-black flex items-center justify-center border-b border-primex-gray-800">
+        <div className="relative w-full group/video">
           {video ? (
-            <video
-              ref={videoRef}
-              src={video}
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="metadata"
-              className="w-full h-full object-cover rounded-t-lg transition-all duration-500 ease-out group-hover/video:scale-[1.6] group-hover/video:shadow-2xl group-hover/video:shadow-primex-green/30 group-hover/video:z-50 group-hover/video:relative"
-            />
+            <div className="relative aspect-video w-full origin-center transition-transform duration-500 ease-out group-hover/video:scale-[1.5] group-hover/video:shadow-2xl group-hover/video:shadow-primex-green/30 z-0 group-hover/video:z-50">
+              <video
+                ref={videoRef}
+                src={video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                className="w-full h-full object-contain rounded-md bg-primex-black"
+              />
+            </div>
           ) : (
-            <div className="w-16 h-16 rounded-2xl bg-primex-green/10 flex items-center justify-center text-primex-green">
-              <IconComponent className="w-8 h-8" />
+            <div className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-primex-green/20 via-primex-dark to-primex-black flex items-center justify-center border-b border-primex-gray-800">
+              <div className="w-16 h-16 rounded-2xl bg-primex-green/10 flex items-center justify-center text-primex-green">
+                <IconComponent className="w-8 h-8" />
+              </div>
             </div>
           )}
           <div className="absolute top-4 left-4">

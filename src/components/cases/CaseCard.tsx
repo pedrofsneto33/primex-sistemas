@@ -56,11 +56,16 @@ export function CaseCard({ caseItem, index }: CaseCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      whileHover={{ y: -6 }}
-      className="h-full"
+      whileHover={{
+        scale: 1.6,
+        zIndex: 50,
+        transition: { duration: 0.35, ease: [0.4, 0, 0.2, 1] },
+      }}
+      style={{ position: "relative", zIndex: 1 }}
+      className="h-full hover:z-50"
     >
       <TiltCard intensity={6} className="h-full">
-        <Card className="h-full bg-primex-dark border-primex-gray-800 hover:border-primex-green transition-all duration-300 flex flex-col overflow-hidden group">
+        <Card className="h-full bg-primex-dark border-primex-gray-800 hover:border-primex-green transition-all duration-300 flex flex-col overflow-hidden group transition-shadow duration-300 hover:shadow-2xl hover:shadow-primex-green/20">
         {/* Header / Vídeo ou placeholder de imagem */}
         <div className="h-40 bg-gradient-to-br from-primex-green/20 via-primex-dark to-primex-black flex items-center justify-center relative border-b border-primex-gray-800 overflow-hidden">
           {video ? (
@@ -72,10 +77,10 @@ export function CaseCard({ caseItem, index }: CaseCardProps) {
               muted
               playsInline
               preload="metadata"
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              className="w-full h-full object-cover"
             />
           ) : (
-            <div className="w-16 h-16 rounded-2xl bg-primex-green/10 flex items-center justify-center text-primex-green group-hover:scale-110 transition-transform">
+            <div className="w-16 h-16 rounded-2xl bg-primex-green/10 flex items-center justify-center text-primex-green">
               <IconComponent className="w-8 h-8" />
             </div>
           )}

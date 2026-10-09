@@ -43,6 +43,8 @@ export interface Case {
   technologies: string[]
   result: string
   slug: string
+  video?: string // caminho do vídeo de demonstração
+  gallery?: string[] // array de imagens da galeria
 }
 
 /**

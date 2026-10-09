@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useRef } from "react"
 import { Globe, Smartphone, Settings, Brain, TrendingUp } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { motion } from "motion/react"
@@ -28,6 +29,26 @@ const categoryLabelMap: Record<string, string> = {
 
 export function CaseCard({ caseItem, index }: CaseCardProps) {
   const IconComponent = categoryIconMap[caseItem.category] || Globe
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const video = caseItem.video
+
+  // Autoplay do vídeo somente quando visível na tela
+  useEffect(() => {
+    const el = videoRef.current
+    if (!el || !video) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.play().catch(() => {})
+        } else {
+          el.pause()
+        }
+      },
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [video])
 
   return (
     <motion.div
@@ -39,11 +60,24 @@ export function CaseCard({ caseItem, index }: CaseCardProps) {
     >
       <TiltCard intensity={6} className="h-full">
         <Card className="h-full bg-primex-dark border-primex-gray-800 hover:border-primex-green transition-all duration-300 flex flex-col overflow-hidden group">
-        {/* Header / Placeholder de imagem */}
-        <div className="h-40 bg-gradient-to-br from-primex-green/20 via-primex-dark to-primex-black flex items-center justify-center relative border-b border-primex-gray-800">
-          <div className="w-16 h-16 rounded-2xl bg-primex-green/10 flex items-center justify-center text-primex-green group-hover:scale-110 transition-transform">
-            <IconComponent className="w-8 h-8" />
-          </div>
+        {/* Header / Vídeo ou placeholder de imagem */}
+        <div className="h-40 bg-gradient-to-br from-primex-green/20 via-primex-dark to-primex-black flex items-center justify-center relative border-b border-primex-gray-800 overflow-hidden">
+          {video ? (
+            <video
+              ref={videoRef}
+              src={video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-16 h-16 rounded-2xl bg-primex-green/10 flex items-center justify-center text-primex-green group-hover:scale-110 transition-transform">
+              <IconComponent className="w-8 h-8" />
+            </div>
+          )}
           <div className="absolute top-4 left-4">
             <span className="px-3 py-1 rounded-full text-xs font-medium bg-primex-green/10 text-primex-green border border-primex-green/20">
               {categoryLabelMap[caseItem.category] || caseItem.category}

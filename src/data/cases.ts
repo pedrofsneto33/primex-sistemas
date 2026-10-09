@@ -21,6 +21,12 @@ export const cases: Case[] = [
     ],
     result: "75% de otimização nos serviços e demandas",
     slug: "mesa-fiscal",
+    video: "/videos/mesa-fiscal-demo.webm",
+    gallery: [
+      "/images/cases/mesa-fiscal-painel.png",
+      "/images/cases/mesa-fiscal-processos.png",
+      "/images/cases/mesa-fiscal-relatorio.png",
+    ],
   },
   {
     id: "2",

@@ -56,18 +56,12 @@ export function CaseCard({ caseItem, index }: CaseCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
-      whileHover={{
-        scale: 1.6,
-        zIndex: 50,
-        transition: { duration: 0.35, ease: [0.4, 0, 0.2, 1] },
-      }}
-      style={{ position: "relative", zIndex: 1 }}
-      className="h-full hover:z-50"
+      className="h-full"
     >
       <TiltCard intensity={6} className="h-full">
-        <Card className="h-full bg-primex-dark border-primex-gray-800 hover:border-primex-green transition-all duration-300 flex flex-col overflow-hidden group transition-shadow duration-300 hover:shadow-2xl hover:shadow-primex-green/20">
+        <Card className="h-full bg-primex-dark border-primex-gray-800 hover:border-primex-green transition-all duration-300 flex flex-col group transition-shadow duration-300 hover:shadow-2xl hover:shadow-primex-green/20">
         {/* Header / Vídeo ou placeholder de imagem */}
-        <div className="h-40 bg-gradient-to-br from-primex-green/20 via-primex-dark to-primex-black flex items-center justify-center relative border-b border-primex-gray-800 overflow-hidden">
+        <div className="relative aspect-video w-full group/video bg-gradient-to-br from-primex-green/20 via-primex-dark to-primex-black flex items-center justify-center border-b border-primex-gray-800">
           {video ? (
             <video
               ref={videoRef}
@@ -77,7 +71,7 @@ export function CaseCard({ caseItem, index }: CaseCardProps) {
               muted
               playsInline
               preload="metadata"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-t-lg transition-all duration-500 ease-out group-hover/video:scale-[1.6] group-hover/video:shadow-2xl group-hover/video:shadow-primex-green/30 group-hover/video:z-50 group-hover/video:relative"
             />
           ) : (
             <div className="w-16 h-16 rounded-2xl bg-primex-green/10 flex items-center justify-center text-primex-green">

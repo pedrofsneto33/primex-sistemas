@@ -52,10 +52,11 @@ export function CaseCard({ caseItem, index }: CaseCardProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ delay: index * 0.1, duration: 0.5 }}
+      whileHover={{ y: -6 }}
       className="h-full"
     >
       <TiltCard intensity={6} className="h-full">
@@ -71,7 +72,7 @@ export function CaseCard({ caseItem, index }: CaseCardProps) {
               muted
               playsInline
               preload="metadata"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
           ) : (
             <div className="w-16 h-16 rounded-2xl bg-primex-green/10 flex items-center justify-center text-primex-green group-hover:scale-110 transition-transform">

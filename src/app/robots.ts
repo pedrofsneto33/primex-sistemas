@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://primex-sistemas.vercel.app/sitemap.xml",
+    sitemap: "https://primexsistemas.com/sitemap.xml",
   }
 }

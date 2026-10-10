@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 import { getAllPosts } from "@/lib/blog"
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://primex-sistemas.vercel.app"
+  const baseUrl = "https://primexsistemas.com"
 
   // Páginas estáticas
   const staticPages: MetadataRoute.Sitemap = [

@@ -24,7 +24,7 @@ const interTight = Inter_Tight({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://primex-sistemas.vercel.app"),
+  metadataBase: new URL("https://primexsistemas.com"),
   title: "Primex Sistemas — Soluções Inteligentes",
   description:
     "Desenvolvimento de softwares e soluções inteligentes para transformar seu negócio. Soluções em web, mobile, sistemas sob medida e IA.",
@@ -126,8 +126,8 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Primex Sistemas",
               legalName: "PRIMEX SISTEMAS LTDA",
-              url: "https://primex-sistemas.vercel.app",
-              logo: "https://primex-sistemas.vercel.app/brand/logo-horizontal-verde-preto.svg",
+              url: "https://primexsistemas.com",
+              logo: "https://primexsistemas.com/brand/logo-horizontal-verde-preto.svg",
               description:
                 "Empresa de desenvolvimento de software e soluções inteligentes com sede em Teresina (PI), atendendo todo o Brasil.",
               email: "pedrofsneto33@gmail.com",
@@ -165,11 +165,11 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "@id": "https://primex-sistemas.vercel.app/#localbusiness",
+              "@id": "https://primexsistemas.com/#localbusiness",
               name: "Primex Sistemas",
               image:
-                "https://primex-sistemas.vercel.app/brand/logo-horizontal-verde-preto.svg",
-              url: "https://primex-sistemas.vercel.app",
+                "https://primexsistemas.com/brand/logo-horizontal-verde-preto.svg",
+              url: "https://primexsistemas.com",
               telephone: "+55-86-98811-7925",
               email: "pedrofsneto33@gmail.com",
               priceRange: "$$",
@@ -210,7 +210,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Primex Sistemas",
-              url: "https://primex-sistemas.vercel.app",
+              url: "https://primexsistemas.com",
               publisher: {
                 "@type": "Organization",
                 name: "Primex Sistemas",

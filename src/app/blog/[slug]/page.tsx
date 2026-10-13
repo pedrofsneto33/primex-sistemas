@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { getAllSlugs, getPostBySlug } from "@/lib/blog";
+import { getAllPosts, getAllSlugs, getPostBySlug } from "@/lib/blog";
+import { ShareButtons } from "@/components/blog/ShareButtons";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -37,6 +38,23 @@ export default async function BlogPostPage({ params }: BlogPostPageProps): Promi
   const { slug } = await params;
   const post = await getPostBySlug(slug);
   if (!post) notFound();
+
+  const allPosts = getAllPosts();
+  const relatedPosts = allPosts
+    .filter((p) => p.slug !== slug)
+    .filter((p) => p.category === post.category)
+    .slice(0, 3);
+
+  // Se tiver menos de 3 da mesma categoria, completa com outros
+  if (relatedPosts.length < 3) {
+    const others = allPosts
+      .filter(
+        (p) => p.slug !== slug && !relatedPosts.find((r) => r.slug === p.slug)
+      )
+      .slice(0, 3 - relatedPosts.length);
+    relatedPosts.push(...others);
+  }
+
   const formattedDate = new Date(post.date).toLocaleDateString("pt-BR", {
     day: "2-digit",
     month: "long",
@@ -77,6 +95,41 @@ export default async function BlogPostPage({ params }: BlogPostPageProps): Promi
           className="prose prose-lg prose-invert max-w-none text-primex-gray-100 prose-headings:font-display prose-headings:text-primex-white prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-p:text-primex-gray-300 prose-p:leading-relaxed prose-p:my-4 prose-a:text-primex-green prose-a:no-underline hover:prose-a:underline prose-strong:text-primex-white prose-ul:text-primex-gray-300 prose-li:my-1"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
+        <ShareButtons title={post.title} slug={post.slug} />
+        {/* Posts relacionados */}
+        {relatedPosts.length > 0 && (
+          <section className="mt-16 pt-12 border-t border-primex-gray-800">
+            <div className="mb-8">
+              <span className="text-primex-green font-display text-xs tracking-widest uppercase">
+                Leia também
+              </span>
+              <h2 className="font-display text-2xl font-bold text-primex-white mt-2">
+                Continue lendo
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {relatedPosts.map((related) => (
+                <Link
+                  key={related.slug}
+                  href={`/blog/${related.slug}`}
+                  className="group block"
+                >
+                  <article className="card-primex card-primex-bordered bg-primex-dark p-5 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primex-green/10">
+                    <span className="inline-block px-2.5 py-1 mb-3 rounded-full bg-primex-green/10 text-primex-green text-xs font-medium">
+                      {related.category}
+                    </span>
+                    <h3 className="font-display text-base font-bold text-primex-white mb-2 group-hover:text-primex-green transition-colors leading-snug line-clamp-2">
+                      {related.title}
+                    </h3>
+                    <p className="text-primex-gray-300 text-xs">
+                      {related.readingTime}
+                    </p>
+                  </article>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
         <div className="mt-16 p-8 rounded-2xl border border-primex-green/20 bg-gradient-to-br from-primex-dark to-primex-black">
           <h3 className="font-display text-2xl font-bold text-primex-white mb-3">
             Pronto para transformar seu negócio?

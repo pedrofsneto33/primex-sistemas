@@ -3,6 +3,7 @@ title: "5 Sinais de que Sua Empresa Precisa de um Sistema Sob Medida"
 date: "2026-09-28"
 author: "Pedro Francisco"
 excerpt: "Se você reconhece pelo menos 3 dos 5 sinais abaixo, sua empresa está perdendo dinheiro todos os dias — e nem sempre percebe."
+cover: "/images/blog/sinais-sistema-sob-medida.svg"
 category: "Gestão"
 ---
 

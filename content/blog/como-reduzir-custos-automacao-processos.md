@@ -3,6 +3,7 @@ title: "Como Reduzir Custos com Automação de Processos em 2026"
 date: "2026-09-28"
 author: "Nivardo Borges"
 excerpt: "Automação não é coisa de empresa grande. Pequenos negócios já reduzem custos em 20% a 40% com automações simples. Veja onde começar."
+cover: "/images/blog/automacao-processos.svg"
 category: "Automação"
 ---
 

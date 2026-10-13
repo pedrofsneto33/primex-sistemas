@@ -3,6 +3,7 @@ title: "Planilhas vs Sistema de Gestão: Quando Migrar?"
 date: "2026-09-28"
 author: "Pedro Francisco"
 excerpt: "Planilhas resolvem 80% dos problemas no começo. Mas chega um momento em que elas param de acompanhar o negócio. Veja como identificar esse ponto."
+cover: "/images/blog/planilhas-vs-sistema.svg"
 category: "Gestão"
 ---
 

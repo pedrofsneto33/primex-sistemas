@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <radialGradient id="glow4" cx="80%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#00C853" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#00C853" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#0A0A0A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="topline4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0A0A0A"/>
+      <stop offset="50%" stop-color="#00C853"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="#0A0A0A"/>
+  <rect width="1200" height="675" fill="url(#glow4)"/>
+  <rect x="0" y="0" width="1200" height="4" fill="url(#topline4)"/>
+  <polygon points="1200,0 1200,80 1120,0" fill="#00C853" opacity="0.15"/>
+  <!-- 5 circulos em linha, primeiro preenchido -->
+  <g transform="translate(120, 250)">
+    <circle cx="15" cy="90" r="18" fill="#00C853"/>
+    <circle cx="65" cy="90" r="18" fill="none" stroke="#00C853" stroke-width="4"/>
+    <circle cx="115" cy="90" r="18" fill="none" stroke="#00C853" stroke-width="4" opacity="0.8"/>
+    <circle cx="165" cy="90" r="18" fill="none" stroke="#00C853" stroke-width="4" opacity="0.6"/>
+    <circle cx="215" cy="90" r="18" fill="none" stroke="#00C853" stroke-width="4" opacity="0.4"/>
+    <line x1="33" y1="90" x2="47" y2="90" stroke="#00C853" stroke-width="3" opacity="0.5"/>
+    <line x1="83" y1="90" x2="97" y2="90" stroke="#00C853" stroke-width="3" opacity="0.5"/>
+    <line x1="133" y1="90" x2="147" y2="90" stroke="#00C853" stroke-width="3" opacity="0.4"/>
+    <line x1="183" y1="90" x2="197" y2="90" stroke="#00C853" stroke-width="3" opacity="0.3"/>
+  </g>
+  <text x="360" y="270" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#00C853" letter-spacing="4">GESTÃO</text>
+  <line x1="360" y1="290" x2="500" y2="290" stroke="#00C853" stroke-width="2" opacity="0.5"/>
+  <text x="360" y="360" font-family="Inter, Helvetica, Arial, sans-serif" font-size="46" font-weight="800" fill="#FFFFFF" letter-spacing="-1">5 sinais de que sua empresa</text>
+  <text x="360" y="415" font-family="Inter, Helvetica, Arial, sans-serif" font-size="46" font-weight="800" fill="#FFFFFF" letter-spacing="-1">precisa de um sistema</text>
+  <text x="120" y="600" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#3D3D3D" letter-spacing="3">PRIMEX SISTEMAS</text>
+</svg>

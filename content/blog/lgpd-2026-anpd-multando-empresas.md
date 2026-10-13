@@ -3,6 +3,7 @@ title: "LGPD em 2026: A ANPD Está Multando de Verdade — Sua Empresa Está Pro
 date: "2026-09-23"
 author: "Pedro Francisco"
 excerpt: "A ANPD aplicou a maior multa da história: R$ 153,7 milhões. E 21 empresas foram processadas por simplesmente ignorar notificações. O que sua empresa precisa fazer agora."
+cover: "/images/blog/lgpd-2026.svg"
 category: "LGPD"
 ---
 

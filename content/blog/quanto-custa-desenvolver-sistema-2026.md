@@ -3,6 +3,7 @@ title: "Quanto Custa Desenvolver um Sistema em 2026? Guia Realista"
 date: "2026-09-28"
 author: "Pedro Francisco"
 excerpt: "Sem rodeios: os valores reais de um sistema sob medida em 2026, o que faz o preço subir ou descer, e como não cair em armadilhas."
+cover: "/images/blog/quanto-custa-sistema.svg"
 category: "Gestão"
 ---
 

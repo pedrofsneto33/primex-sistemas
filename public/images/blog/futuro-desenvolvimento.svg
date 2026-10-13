@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <radialGradient id="glow5" cx="80%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#00C853" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#00C853" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#0A0A0A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="topline5" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0A0A0A"/>
+      <stop offset="50%" stop-color="#00C853"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="#0A0A0A"/>
+  <rect width="1200" height="675" fill="url(#glow5)"/>
+  <rect x="0" y="0" width="1200" height="4" fill="url(#topline5)"/>
+  <polygon points="1200,0 1200,80 1120,0" fill="#00C853" opacity="0.15"/>
+  <!-- Chaves com ponto luminoso -->
+  <g transform="translate(120, 250)">
+    <path d="M20 30 L55 30 L55 50 L70 50 L70 70 L55 70 L55 90 L70 90 L70 110 L55 110 L55 130 L70 130 L70 150 L20 150" fill="none" stroke="#00C853" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+    <path d="M160 30 L125 30 L125 50 L110 50 L110 70 L125 70 L125 90 L110 90 L110 110 L125 110 L125 130 L110 130 L110 150 L160 150" fill="none" stroke="#00C853" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" opacity="0.7"/>
+    <circle cx="90" cy="90" r="10" fill="#69F0AE"/>
+    <circle cx="90" cy="90" r="20" fill="none" stroke="#69F0AE" stroke-width="2" opacity="0.4"/>
+  </g>
+  <text x="360" y="270" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#00C853" letter-spacing="4">DESENVOLVIMENTO</text>
+  <line x1="360" y1="290" x2="500" y2="290" stroke="#00C853" stroke-width="2" opacity="0.5"/>
+  <text x="360" y="360" font-family="Inter, Helvetica, Arial, sans-serif" font-size="46" font-weight="800" fill="#FFFFFF" letter-spacing="-1">O futuro do desenvolvimento</text>
+  <text x="360" y="415" font-family="Inter, Helvetica, Arial, sans-serif" font-size="46" font-weight="800" fill="#FFFFFF" letter-spacing="-1">de software</text>
+  <text x="120" y="600" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#3D3D3D" letter-spacing="3">PRIMEX SISTEMAS</text>
+</svg>

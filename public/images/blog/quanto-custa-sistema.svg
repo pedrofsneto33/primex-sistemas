@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <radialGradient id="glow3" cx="80%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#00C853" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#00C853" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#0A0A0A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="topline3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0A0A0A"/>
+      <stop offset="50%" stop-color="#00C853"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="#0A0A0A"/>
+  <rect width="1200" height="675" fill="url(#glow3)"/>
+  <rect x="0" y="0" width="1200" height="4" fill="url(#topline3)"/>
+  <polygon points="1200,0 1200,80 1120,0" fill="#00C853" opacity="0.15"/>
+  <!-- Cifrao dentro de circulo -->
+  <g transform="translate(120, 250)">
+    <circle cx="90" cy="90" r="80" fill="none" stroke="#00C853" stroke-width="5"/>
+    <text x="90" y="122" font-family="Inter, Helvetica, Arial, sans-serif" font-size="88" font-weight="800" fill="#00C853" text-anchor="middle">$</text>
+    <circle cx="150" cy="30" r="10" fill="#69F0AE"/>
+  </g>
+  <text x="360" y="270" font-family="Inter, Helvetica, Arial, sans-serif" font-size="18" font-weight="700" fill="#00C853" letter-spacing="4">GESTÃO</text>
+  <line x1="360" y1="290" x2="500" y2="290" stroke="#00C853" stroke-width="2" opacity="0.5"/>
+  <text x="360" y="360" font-family="Inter, Helvetica, Arial, sans-serif" font-size="46" font-weight="800" fill="#FFFFFF" letter-spacing="-1">Quanto custa desenvolver</text>
+  <text x="360" y="415" font-family="Inter, Helvetica, Arial, sans-serif" font-size="46" font-weight="800" fill="#FFFFFF" letter-spacing="-1">um sistema em 2026</text>
+  <text x="120" y="600" font-family="Inter, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#3D3D3D" letter-spacing="3">PRIMEX SISTEMAS</text>
+</svg>

@@ -3,6 +3,7 @@ title: "IA para Pequenas Empresas: Como Sair do Hype e Ter Resultado Real"
 date: "2026-09-23"
 author: "Pedro Francisco"
 excerpt: "A adoção de IA nas pequenas empresas brasileiras cresceu 50% em um ano. Mas ferramenta sem processo só acelera erro. Veja como aplicar de verdade."
+cover: "/images/blog/ia-pequenas-empresas.svg"
 category: "Inteligência Artificial"
 ---
 

@@ -3,6 +3,7 @@ title: "Como escolher uma empresa de software em 2026"
 date: "2026-09-22"
 author: "Pedro Francisco"
 excerpt: "Guia completo para escolher a empresa de software ideal para o seu projeto — sem cair em armadilhas comuns."
+cover: "/images/blog/escolher-empresa-software.svg"
 category: "Gestão"
 ---
 

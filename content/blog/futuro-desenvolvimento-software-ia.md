@@ -3,6 +3,7 @@ title: "O Futuro do Desenvolvimento de Software: Como a IA Está Mudando Tudo em
 date: "2026-09-23"
 author: "Nivardo Borges"
 excerpt: "Desenvolvedores estão deixando de escrever código para definir intenções. A IA está transformando o ciclo de vida do software — e o que isso significa para quem contrata."
+cover: "/images/blog/futuro-desenvolvimento.svg"
 category: "Desenvolvimento"
 ---
 

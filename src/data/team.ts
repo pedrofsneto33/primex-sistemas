@@ -4,9 +4,9 @@ export const team: TeamMember[] = [
   {
     id: "1",
     name: "Pedro Francisco da Silva Neto",
-    role: "CEO",
+    role: "CEO & Desenvolvedor",
     image: "/images/equipe/pedro.jpg",
-    bio: "Engenheiro de Software com especialização em Análise de Dados e Inteligência Artificial.",
+    bio: "Lidera a Primex Sistemas com foco em tecnologia, análise de dados e inteligência artificial aplicada a negócios.",
     social: {
       instagram: "https://instagram.com/primexsistemas",
     },

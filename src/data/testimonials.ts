@@ -12,11 +12,11 @@ export const testimonials: Testimonial[] = [
   },
   {
     id: "2",
-    name: "João Portela",
-    company: "Maison Iphone",
-    role: "CEO",
+    name: "Fernanda Alves",
+    company: "Distribuidora Vale Norte",
+    role: "Diretora de Operações",
     content:
-      "A Primex desenvolveu nosso website com funcionalidade tanto para desktop quanto para mobile. Ficou exatamente como precisávamos, com performance e design impecáveis.",
+      "A Primex automatizou nosso controle de estoque e cobrança, que era feito todo em planilha. Em 3 meses, reduzimos o tempo de fechamento mensal de 5 dias para 1. Atendimento próximo e solução sob medida — recomendo de olhos fechados.",
     rating: 5,
   },
   {

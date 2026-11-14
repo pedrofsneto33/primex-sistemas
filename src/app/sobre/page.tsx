@@ -2,13 +2,12 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Sparkles, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { HistoryTimeline } from "@/components/about/HistoryTimeline"
 import { ValuesSection } from "@/components/about/ValuesSection"
-import { TeamSection } from "@/components/about/TeamSection"
+import { FounderSection } from "@/components/about/FounderSection"
 
 export const metadata: Metadata = {
   title: "Sobre — Primex Sistemas",
-  description: "Conheça a história, valores e equipe da Primex Sistemas.",
+  description: "Conheça a Primex Sistemas, seus valores e quem está por trás dos projetos.",
 }
 
 export default function AboutPage() {
@@ -25,19 +24,33 @@ export default function AboutPage() {
             Quem <span className="text-primex-green">Somos</span>
           </h1>
           <p className="text-lg md:text-xl text-primex-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Tecnologia que resolve, parceria que dura. Combinamos inovação, engenharia de software de ponta e foco total nos resultados do seu negócio.
+            Tecnologia que resolve, parceria que dura. Combinamos engenharia de software, dados e IA com foco total no resultado do seu negócio.
           </p>
         </div>
       </section>
 
-      {/* History Timeline */}
-      <HistoryTimeline />
+      {/* Quem somos */}
+      <section className="py-20 px-6 bg-primex-black">
+        <div className="container mx-auto max-w-3xl space-y-5 text-primex-gray-300 text-lg leading-relaxed">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-primex-white">
+            O QUE A PRIMEX FAZ
+          </h2>
+          <p>
+            A Primex Sistemas desenvolve software sob medida, automações e soluções com inteligência
+            artificial para quem precisa de tecnologia que funcione no dia a dia, sem complicação.
+          </p>
+          <p>
+            Trabalhamos de perto com cada cliente: entendemos o processo, desenhamos a solução, entregamos
+            e seguimos dando suporte. Sem promessas vazias. Só o que dá pra construir, testar e colocar no ar.
+          </p>
+        </div>
+      </section>
 
       {/* Values Section */}
       <ValuesSection />
 
-      {/* Team Section */}
-      <TeamSection />
+      {/* Fundador */}
+      <FounderSection />
 
       {/* CTA Final */}
       <section className="py-20 bg-primex-dark text-center border-t border-primex-gray-800">
@@ -46,7 +59,7 @@ export default function AboutPage() {
             Vamos construir juntos?
           </h2>
           <p className="text-primex-gray-300 mb-8 text-lg">
-            Entre em contato com nossa equipe e descubra como podemos ajudar a sua empresa a alcançar o próximo nível.
+            Entre em contato e descubra como podemos ajudar a sua empresa a alcançar o próximo nível.
           </p>
           <Button asChild size="lg" className="bg-primex-green hover:bg-primex-green-hover text-primex-black font-semibold">
             <Link href="/contato">

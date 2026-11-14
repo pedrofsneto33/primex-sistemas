@@ -96,10 +96,18 @@ function Particles() {
 
   const positions = useMemo(() => {
     const pos: THREE.Vector3[] = []
+    // Gerador pseudoaleatório determinístico (mulberry32): mesma nuvem em toda renderização
+    let seed = 1234567
+    const rand = () => {
+      seed = (seed + 0x6d2b79f5) | 0
+      let t = Math.imul(seed ^ (seed >>> 15), 1 | seed)
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+    }
     for (let i = 0; i < count; i++) {
-      const theta = Math.random() * Math.PI * 2
-      const phi = Math.acos(2 * Math.random() - 1)
-      const radius = 5 + Math.random() * 2
+      const theta = rand() * Math.PI * 2
+      const phi = Math.acos(2 * rand() - 1)
+      const radius = 5 + rand() * 2
       pos.push(
         new THREE.Vector3(
           radius * Math.sin(phi) * Math.cos(theta),

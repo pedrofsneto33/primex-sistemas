@@ -1,6 +1,6 @@
 "use client"
 
-import { Globe, Smartphone, Settings, Brain, TrendingUp } from "lucide-react"
+import { Globe, Smartphone, Settings, Brain, ExternalLink } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { motion } from "motion/react"
 import { Card, CardContent } from "@/components/ui/card"
@@ -37,7 +37,6 @@ export function CaseCard({ caseItem, index }: CaseCardProps) {
       className="h-full"
     >
       <Card className="h-full bg-primex-dark border-primex-gray-800 hover:border-primex-green transition-all duration-300 flex flex-col overflow-hidden group">
-        {/* Header / Placeholder de imagem */}
         <div className="h-40 bg-gradient-to-br from-primex-green/20 via-primex-dark to-primex-black flex items-center justify-center relative border-b border-primex-gray-800">
           <div className="w-16 h-16 rounded-2xl bg-primex-green/10 flex items-center justify-center text-primex-green group-hover:scale-110 transition-transform">
             <IconComponent className="w-8 h-8" />
@@ -49,40 +48,44 @@ export function CaseCard({ caseItem, index }: CaseCardProps) {
           </div>
         </div>
 
-        {/* Content */}
         <CardContent className="p-6 flex-1 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-primex-green text-xs font-semibold tracking-wide uppercase">
-                {caseItem.client}
-              </span>
-            </div>
-            <h3 className="font-display text-xl text-primex-white group-hover:text-primex-green transition-colors mb-3">
+            <span className="text-primex-green text-xs font-semibold tracking-wide uppercase">
+              {caseItem.tag}
+            </span>
+            <h3 className="font-display text-xl text-primex-white group-hover:text-primex-green transition-colors mt-2 mb-3">
               {caseItem.title}
             </h3>
-            <p className="text-primex-gray-300 text-sm leading-relaxed line-clamp-3 mb-6">
+            <p className="text-primex-gray-300 text-sm leading-relaxed mb-6">
               {caseItem.description}
             </p>
           </div>
 
           <div>
-            {/* Tecnologias */}
-            <div className="flex flex-wrap gap-1.5 mb-6">
-              {caseItem.technologies.map((tech, i) => (
-                <span
-                  key={i}
-                  className="rounded bg-primex-gray-900 text-primex-gray-300 text-xs px-2 py-1 border border-primex-gray-800"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+            {caseItem.technologies && caseItem.technologies.length > 0 && (
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                {caseItem.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="rounded bg-primex-gray-900 text-primex-gray-300 text-xs px-2 py-1 border border-primex-gray-800"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            )}
 
-            {/* Resultado */}
-            <div className="pt-4 border-t border-primex-gray-800 flex items-center gap-2 text-primex-green text-sm font-medium">
-              <TrendingUp className="w-4 h-4 shrink-0" />
-              <span className="line-clamp-1">{caseItem.result}</span>
-            </div>
+            {caseItem.url && (
+              <a
+                href={caseItem.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pt-4 border-t border-primex-gray-800 flex items-center gap-2 text-primex-green text-sm font-medium hover:underline"
+              >
+                <ExternalLink className="w-4 h-4 shrink-0" />
+                Ver projeto
+              </a>
+            )}
           </div>
         </CardContent>
       </Card>

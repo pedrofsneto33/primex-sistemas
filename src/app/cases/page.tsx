@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button"
 import { CaseGallery } from "@/components/cases/CaseGallery"
 
 export const metadata: Metadata = {
-  title: "Cases — Primex Sistemas",
-  description: "Conheça projetos que transformaram negócios com a Primex Sistemas.",
+  title: "Projetos — Primex Sistemas",
+  description: "Conheça os sistemas que a Primex Sistemas desenvolveu: IA, automação, gestão e web.",
 }
 
 export default function CasesPage() {
@@ -20,10 +20,10 @@ export default function CasesPage() {
             PORTFÓLIO
           </span>
           <h1 className="font-display text-5xl md:text-6xl font-bold text-primex-white mb-6 tracking-tight">
-            Nossos <span className="text-primex-green">Cases</span>
+            Nossos <span className="text-primex-green">Projetos</span>
           </h1>
           <p className="text-lg md:text-xl text-primex-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Projetos reais, resultados reais. Veja como ajudamos nossos clientes a superarem desafios complexos.
+            Sistemas reais, construídos para resolver problemas reais. Veja o que já saiu do papel.
           </p>
         </div>
       </section>
@@ -35,10 +35,10 @@ export default function CasesPage() {
       <section className="py-20 bg-primex-dark text-center border-t border-primex-gray-800">
         <div className="container mx-auto px-6 max-w-3xl">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-primex-white mb-4">
-            Quer ver seu projeto aqui?
+            Quer tirar o seu projeto do papel?
           </h2>
           <p className="text-primex-gray-300 mb-8 text-lg">
-            Vamos conversar sobre a sua ideia e construir a próxima história de sucesso.
+            Conte sua ideia e a gente desenha a solução juntos.
           </p>
           <Button asChild size="lg" className="bg-primex-green hover:bg-primex-green-hover text-primex-black font-semibold">
             <Link href="/contato">

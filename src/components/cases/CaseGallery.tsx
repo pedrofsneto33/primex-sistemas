@@ -9,7 +9,6 @@ import { Filter } from "lucide-react"
 const filters = [
   { id: "all", label: "Todos" },
   { id: "web", label: "Web" },
-  { id: "mobile", label: "Mobile" },
   { id: "sistemas", label: "Sistemas" },
   { id: "ia", label: "IA & Automação" },
 ]
@@ -26,10 +25,10 @@ export function CaseGallery() {
       <div className="container mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-primex-white mb-4">
-            NOSSOS CASES
+            PROJETOS
           </h2>
           <p className="text-primex-gray-300">
-            Resultados reais que transformam negócios e elevam o padrão tecnológico.
+            Sistemas que desenhamos, construímos e colocamos no ar.
           </p>
         </div>
 

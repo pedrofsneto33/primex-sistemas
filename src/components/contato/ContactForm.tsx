@@ -17,6 +17,8 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Card, CardContent } from "@/components/ui/card"
+import Link from "next/link"
+import { whatsappLink } from "@/data/site"
 
 const contactSchema = z.object({
   name: z.string().min(3, "Nome deve ter pelo menos 3 caracteres"),
@@ -25,6 +27,9 @@ const contactSchema = z.object({
   phone: z.string().optional(),
   service: z.string().min(1, "Selecione um serviço"),
   message: z.string().min(10, "Mensagem deve ter pelo menos 10 caracteres"),
+  consent: z.boolean().refine((v) => v === true, {
+    message: "É necessário concordar para enviar a mensagem",
+  }),
 })
 
 type ContactFormData = z.infer<typeof contactSchema>
@@ -46,14 +51,34 @@ export function ContactForm() {
 
   const serviceValue = watch("service")
 
-  const onSubmit = async (data: ContactFormData) => {
+  const serviceLabels: Record<string, string> = {
+    web: "Desenvolvimento Web",
+    mobile: "Aplicativos Mobile",
+    sistemas: "Sistemas Sob Medida",
+    ia: "IA & Automação",
+    outro: "Outro / Consultoria",
+  }
+
+  // Sem backend de e-mail: a mensagem é montada e aberta no WhatsApp da Primex.
+  const onSubmit = (data: ContactFormData) => {
     setIsSubmitting(true)
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    console.log("Form data:", data)
+    const text = [
+      "Olá! Vim pelo formulário do site da Primex Sistemas.",
+      `Nome: ${data.name}`,
+      `E-mail: ${data.email}`,
+      data.phone ? `Telefone: ${data.phone}` : null,
+      data.company ? `Empresa: ${data.company}` : null,
+      `Serviço: ${serviceLabels[data.service] ?? data.service}`,
+      "",
+      data.message,
+    ]
+      .filter((line) => line !== null)
+      .join("\n")
+    window.open(whatsappLink(text), "_blank", "noopener,noreferrer")
     setIsSubmitting(false)
     setIsSuccess(true)
     reset()
-    setTimeout(() => setIsSuccess(false), 5000)
+    setTimeout(() => setIsSuccess(false), 8000)
   }
 
   return (
@@ -69,10 +94,10 @@ export function ContactForm() {
               <CheckCircle2 className="w-10 h-10" />
             </div>
             <h3 className="font-display text-2xl text-primex-white font-bold">
-              Mensagem enviada com sucesso!
+              Quase lá!
             </h3>
             <p className="text-primex-gray-300 max-w-md mx-auto">
-              Obrigado pelo contato. Nossa equipe técnica retornará em breve.
+              Abrimos o WhatsApp com a sua mensagem pronta. É só tocar em enviar. Se preferir, escreva para o nosso e-mail.
             </p>
           </motion.div>
         ) : (
@@ -115,7 +140,7 @@ export function ContactForm() {
                 </Label>
                 <Input
                   id="phone"
-                  placeholder="(11) 99999-9999"
+                  placeholder="(86) 99999-9999"
                   {...register("phone")}
                   className="bg-primex-gray-900 border-primex-gray-700 text-primex-white placeholder:text-primex-gray-500 focus-visible:ring-primex-green"
                 />
@@ -127,7 +152,7 @@ export function ContactForm() {
                 Empresa
               </Label>
               <Input
-              id="company"
+                id="company"
                 placeholder="Nome da sua empresa"
                 {...register("company")}
                 className="bg-primex-gray-900 border-primex-gray-700 text-primex-white placeholder:text-primex-gray-500 focus-visible:ring-primex-green"
@@ -167,10 +192,31 @@ export function ContactForm() {
                 rows={5}
                 placeholder="Descreva seu projeto ou necessidade..."
                 {...register("message")}
-                className="flex w-full rounded-md border border-primex-gray-700 bg-primex-gray-900 px-3 py-2 text-sm text-primex-white placeholder:text-primex-gray-550 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primex-green focus-visible:ring-offset-2 ring-offset-primex-black disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex w-full rounded-md border border-primex-gray-700 bg-primex-gray-900 px-3 py-2 text-sm text-primex-white placeholder:text-primex-gray-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primex-green focus-visible:ring-offset-2 ring-offset-primex-black disabled:cursor-not-allowed disabled:opacity-50"
               />
               {errors.message && (
                 <p className="text-red-400 text-xs mt-1.5">{errors.message.message}</p>
+              )}
+            </div>
+
+            <div>
+              <label className="flex items-start gap-3 text-sm text-primex-gray-300 cursor-pointer">
+                <input
+                  type="checkbox"
+                  {...register("consent")}
+                  className="mt-1 h-4 w-4 accent-[#00C853]"
+                />
+                <span>
+                  Concordo em compartilhar estes dados para receber retorno sobre o meu contato,
+                  conforme a{" "}
+                  <Link href="/privacidade" className="text-primex-green hover:underline">
+                    Política de Privacidade
+                  </Link>
+                  . *
+                </span>
+              </label>
+              {errors.consent && (
+                <p className="text-red-400 text-xs mt-1.5">{errors.consent.message}</p>
               )}
             </div>
 
@@ -182,12 +228,12 @@ export function ContactForm() {
               {isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                  Enviando mensagem...
+                  Abrindo WhatsApp...
                 </>
               ) : (
                 <>
                   <Send className="mr-2 h-5 w-5" />
-                  Enviar Mensagem
+                  Enviar pelo WhatsApp
                 </>
               )}
             </Button>

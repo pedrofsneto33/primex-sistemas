@@ -1,7 +1,8 @@
 import type { Metadata } from "next"
-import { Mail, Phone, MapPin, Clock } from "lucide-react"
+import { Mail, Phone, MapPin, Building2 } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { ContactForm } from "@/components/contato/ContactForm"
+import { site } from "@/data/site"
 
 export const metadata: Metadata = {
   title: "Contato — Primex Sistemas",
@@ -9,10 +10,10 @@ export const metadata: Metadata = {
 }
 
 const contactInfo = [
-  { icon: Mail, label: "E-mail", value: "contato@primexsistemas.com.br" },
-  { icon: Phone, label: "Telefone", value: "+55 (11) 99999-9999" },
-  { icon: MapPin, label: "Localização", value: "São Paulo, SP - Brasil" },
-  { icon: Clock, label: "Horário", value: "Seg-Sex, 9h às 18h" },
+  { icon: Mail, label: "E-mail", value: site.email },
+  { icon: Phone, label: "Telefone / WhatsApp", value: site.phoneDisplay },
+  { icon: MapPin, label: "Localização", value: `${site.city}, ${site.state} - Brasil` },
+  { icon: Building2, label: "Empresa", value: `${site.legalName} · CNPJ ${site.cnpj}` },
 ]
 
 export default function ContactPage() {
@@ -28,7 +29,7 @@ export default function ContactPage() {
             Vamos <span className="text-primex-green">Conversar</span>
           </h1>
           <p className="text-lg md:text-xl text-primex-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Tem um projeto em mente ou precisa de uma solução robusta? Nossa equipe está pronta para atender você.
+            Tem um projeto em mente ou precisa de uma solução robusta? Conte o que você precisa e eu respondo pessoalmente.
           </p>
         </div>
       </section>
@@ -59,7 +60,7 @@ export default function ContactPage() {
                             <Icon className="w-5 h-5" />
                           </div>
                           <div>
-                            <p className="text-xs text-primex-gray-400 font-medium">
+                            <p className="text-xs text-primex-gray-300 font-medium">
                               {item.label}
                             </p>
                             <p className="text-sm text-primex-white font-semibold mt-0.5">
@@ -81,10 +82,10 @@ export default function ContactPage() {
                       <MapPin className="w-7 h-7" />
                     </div>
                     <h4 className="font-display text-primex-white font-semibold text-lg">
-                      São Paulo, SP
+                      {site.city}, {site.state}
                     </h4>
-                    <p className="text-primex-gray-400 text-xs mt-1">
-                      Atendimento presencial e remoto para todo o Brasil.
+                    <p className="text-primex-gray-300 text-xs mt-1">
+                      Atendimento remoto para todo o Brasil.
                     </p>
                   </div>
                 </CardContent>

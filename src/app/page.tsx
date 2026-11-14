@@ -7,13 +7,11 @@ import { ArrowRight, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import ServicesSection from "@/components/home/ServicesSection"
 import ProcessSection from "@/components/home/ProcessSection"
-import StatsSection from "@/components/home/StatsSection"
-import SocialProof from "@/components/home/SocialProof"
 import FaqSection from "@/components/home/FaqSection"
 import CtaSection from "@/components/home/CtaSection"
 
 // Hero 3D carregado apenas no cliente (SSR off por causa do WebGL)
-const Hero3D = dynamic(() => import("@/components/home/Hero3D"), {
+const Hero3D = dynamic(() => import("@/components/home/HeroBackground"), {
   ssr: false,
   loading: () => (
     <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primex-black via-primex-dark to-primex-black" />
@@ -83,12 +81,6 @@ export default function Home() {
 
       {/* PROCESSO */}
       <ProcessSection />
-
-      {/* ESTATÍSTICAS */}
-      <StatsSection />
-
-      {/* PROVA SOCIAL */}
-      <SocialProof />
 
       {/* FAQ */}
       <FaqSection />

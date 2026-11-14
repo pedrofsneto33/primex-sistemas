@@ -36,43 +36,14 @@ export interface Solution {
 export interface Case {
   id: string
   title: string
-  client: string
+  /** Rótulo curto acima do título (ex.: "Projeto próprio") */
+  tag: string
   description: string
   category: Category
-  image: string // URL da imagem ou caminho local
-  technologies: string[]
-  result: string
+  technologies?: string[]
+  /** Link público do projeto, se existir */
+  url?: string
   slug: string
-}
-
-/**
- * Membro da equipe (página /sobre)
- */
-export interface TeamMember {
-  id: string
-  name: string
-  role: string
-  image: string // URL da imagem ou caminho local
-  bio?: string
-  social?: {
-    linkedin?: string
-    github?: string
-    twitter?: string
-    dribbble?: string
-    email?: string
-  }
-}
-
-/**
- * Depoimento de prova social (página Home)
- */
-export interface Testimonial {
-  id: string
-  name: string
-  company: string
-  role: string
-  content: string
-  rating: number // 1-5 estrelas
 }
 
 /**

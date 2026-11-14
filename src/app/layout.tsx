@@ -5,6 +5,7 @@ import { Navbar } from "@/components/shared/Navbar"
 import { Footer } from "@/components/shared/Footer"
 import { ScrollProgress } from "@/components/shared/ScrollProgress"
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton"
+import { site } from "@/data/site"
 import "./globals.css"
 
 // Fontes do Google via next/font (hospedadas no Vercel, zero FOIT)
@@ -22,6 +23,7 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: "Primex Sistemas — Soluções Inteligentes",
   description:
     "Desenvolvimento de softwares e soluções inteligentes para transformar seu negócio. Soluções em web, mobile, sistemas sob medida e IA.",
@@ -39,26 +41,17 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://primexsistemas.com.br",
+    url: site.url,
     siteName: "Primex Sistemas",
     title: "Primex Sistemas — Soluções Inteligentes",
     description:
       "Desenvolvimento de softwares e soluções inteligentes para transformar seu negócio.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Primex Sistemas — Soluções Inteligentes",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Primex Sistemas — Soluções Inteligentes",
     description:
       "Desenvolvimento de softwares e soluções inteligentes para transformar seu negócio.",
-    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -71,6 +64,23 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+}
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.name,
+  legalName: site.legalName,
+  url: site.url,
+  email: site.email,
+  telephone: site.phoneTel,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: site.city,
+    addressRegion: site.state,
+    addressCountry: "BR",
+  },
+  sameAs: [site.github],
 }
 
 export default function RootLayout({
@@ -86,6 +96,10 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <meta name="theme-color" content="#0A0A0A" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
       </head>
       <body className="min-h-screen flex flex-col bg-primex-black text-primex-white antialiased">
         <TooltipProvider>

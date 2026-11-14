@@ -2,8 +2,8 @@
 
 import { motion, AnimatePresence } from "motion/react"
 import { useState } from "react"
+import { whatsappLink } from "@/data/site"
 
-const WHATSAPP_NUMBER = "5511999999999"
 const WHATSAPP_MESSAGE = "Olá! Vim pelo site da Primex Sistemas e gostaria de saber mais sobre os serviços."
 
 function WhatsAppIcon({ size = 28 }: { size?: number }) {
@@ -24,7 +24,7 @@ function WhatsAppIcon({ size = 28 }: { size?: number }) {
 export function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false)
 
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`
+  const url = whatsappLink(WHATSAPP_MESSAGE)
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-end gap-3">

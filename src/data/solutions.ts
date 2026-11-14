@@ -16,7 +16,7 @@ export const solutions: Solution[] = [
       "E-commerce e plataformas digitais",
       "Dashboards e painéis administrativos",
       "APIs RESTful e GraphQL",
-      "Website institucionais e landing pages",
+      "Sites institucionais e landing pages",
       "PWA (Progressive Web Apps)",
     ],
     icon: "Globe",

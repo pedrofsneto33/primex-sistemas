@@ -1,7 +1,7 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { useMotionValue, useTransform } from "motion/react"
+import { useEffect } from "react"
+import { useMotionValue } from "motion/react"
 import type { MotionValue } from "motion/react"
 
 export interface MousePosition {

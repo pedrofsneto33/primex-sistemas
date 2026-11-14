@@ -4,6 +4,7 @@ import { motion } from "motion/react"
 import Link from "next/link"
 import { ArrowRight, MessageCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { whatsappLink } from "@/data/site"
 
 export default function CtaSection() {
   return (
@@ -81,7 +82,7 @@ export default function CtaSection() {
                 className="border-primex-gray-700 text-primex-white hover:bg-primex-gray-900 h-14 px-8 text-base"
               >
                 <a
-                  href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Primex%20Sistemas."
+                  href={whatsappLink("Olá! Vim pelo site da Primex Sistemas.")}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

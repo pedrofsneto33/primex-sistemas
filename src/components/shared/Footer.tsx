@@ -1,12 +1,14 @@
 import Link from "next/link"
-import { Code2, Briefcase, Camera, Mail, Phone } from "lucide-react"
+import { Code2, Mail, Phone, MapPin } from "lucide-react"
 import { Logo } from "@/components/shared/Logo"
+import { site } from "@/data/site"
 
 const navItems = {
   navegacao: [
     { href: "/solucoes", label: "Soluções" },
     { href: "/sobre", label: "Sobre" },
-    { href: "/cases", label: "Cases" },
+    { href: "/cases", label: "Projetos" },
+    { href: "/blog", label: "Blog" },
     { href: "/contato", label: "Contato" },
   ],
   servicos: [
@@ -18,14 +20,13 @@ const navItems = {
 }
 
 const socialLinks = [
-  { href: "https://linkedin.com/company/primexsistemas", icon: Briefcase, label: "LinkedIn" },
-  { href: "https://github.com/primexsistemas", icon: Code2, label: "GitHub" },
-  { href: "https://instagram.com/primexsistemas", icon: Camera, label: "Instagram" },
+  { href: site.github, icon: Code2, label: "GitHub" },
 ]
 
 const contactInfo = [
-  { icon: Mail, label: "contato@primexsistemas.com.br" },
-  { icon: Phone, label: "+55 (11) 9999-9999" },
+  { icon: Mail, label: site.email, href: `mailto:${site.email}` },
+  { icon: Phone, label: site.phoneDisplay, href: `tel:${site.phoneTel}` },
+  { icon: MapPin, label: `${site.city}, ${site.state} — atendimento em todo o Brasil` },
 ]
 
 export function Footer() {
@@ -94,7 +95,13 @@ export function Footer() {
                     className="text-primex-green shrink-0 mt-0.5"
                     size={16}
                   />
-                  <span className="text-primex-gray-300">{item.label}</span>
+                  {"href" in item && item.href ? (
+                    <a href={item.href} className="text-primex-gray-300 hover:text-primex-green transition-colors">
+                      {item.label}
+                    </a>
+                  ) : (
+                    <span className="text-primex-gray-300">{item.label}</span>
+                  )}
                 </li>
               ))}
             </ul>
@@ -125,12 +132,11 @@ export function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-6 border-t border-primex-gray-800 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-primex-gray-300 text-xs">
-            © 2025 Primex Sistemas. Todos os direitos reservados.
+            © {new Date().getFullYear()} {site.legalName} — CNPJ {site.cnpj}. Todos os direitos reservados.
           </p>
           <p className="text-primex-gray-300 text-xs">
-            Desenvolvido com ❤️ por{" "}
-            <Link href="/" className="text-primex-green hover:underline">
-              Primex Sistemas
+            <Link href="/privacidade" className="hover:text-primex-green hover:underline">
+              Política de Privacidade
             </Link>
           </p>
         </div>

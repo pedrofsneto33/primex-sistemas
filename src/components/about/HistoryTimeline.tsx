@@ -3,8 +3,9 @@
 import { motion } from "motion/react"
 
 const timeline = [
-  { year: "2024", title: "Fundação", description: "Nascemos com a missão de transformar negócios através da tecnologia, já com inteligência artificial no centro das nossas soluções." },
-  { year: "2025", title: "Primeiros grandes projetos", description: "Entregamos sistemas sob medida e automações para clientes de diferentes segmentos, atendendo de forma remota em todo o Brasil." },
+  { year: "2020", title: "Fundação", description: "Nascemos com a missão de transformar negócios através da tecnologia." },
+  { year: "2024", title: "Soluções em IA", description: "Incorporamos inteligência artificial aos nossos produtos e automações." },
+  { year: "2025", title: "Atendimento em todo o Brasil", description: "Entregamos sistemas sob medida e automações para clientes de diferentes segmentos, de forma remota." },
   {
     year: "2026",
     title: "Soluções Inteligentes",
@@ -22,7 +23,7 @@ export function HistoryTimeline() {
             NOSSA HISTÓRIA
           </h2>
           <p className="text-primex-gray-300">
-            Uma década construindo soluções que importam
+            {new Date().getFullYear() - 2020} anos construindo soluções inteligentes
           </p>
         </div>
 

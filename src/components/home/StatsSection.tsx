@@ -15,7 +15,7 @@ interface Stat {
 const stats: Stat[] = [
   { value: 45, suffix: "+", label: "Projetos entregues", icon: Code2 },
   { value: 20, suffix: "+", label: "Clientes ativos", icon: Users },
-  { value: new Date().getFullYear() - 2024, suffix: " anos", label: "No mercado", icon: Award },
+  { value: new Date().getFullYear() - 2020, suffix: " anos", label: "No mercado", icon: Award },
   { value: 97, suffix: "%", label: "Clientes satisfeitos", icon: Clock },
 ]
 

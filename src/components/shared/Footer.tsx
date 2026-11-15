@@ -10,7 +10,6 @@ const navItems = {
     { href: "/sobre", label: "Sobre" },
     { href: "/cases", label: "Cases" },
     { href: "/blog", label: "Blog" },
-    { href: "/design", label: "Design System" },
     { href: "/contato", label: "Contato" },
   ],
   servicos: [
@@ -148,15 +147,15 @@ export function Footer() {
           </div>
           <div className="text-center sm:text-left space-y-1">
             <p className="text-primex-gray-300 text-xs">
-              © 2025 Primex Sistemas Ltda. Todos os direitos reservados.
+              © {new Date().getFullYear()} Primex Sistemas Ltda. Todos os direitos reservados.
             </p>
-            <p className="text-primex-gray-300 text-xs opacity-70">
+            <p className="text-primex-gray-300 text-xs">
               CNPJ: 55.536.885/0001-30
             </p>
           </div>
           <p className="text-primex-gray-300 text-xs">
             Desenvolvido com ❤️ por{" "}
-            <Link href="/" className="text-primex-green hover:underline">
+            <Link href="/" className="text-primex-green underline underline-offset-2 hover:text-primex-green-light">
               Primex Sistemas
             </Link>
           </p>

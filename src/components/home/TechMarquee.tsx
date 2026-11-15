@@ -37,7 +37,7 @@ export default function TechMarquee(): React.JSX.Element {
         {[...technologies, ...technologies].map((tech, i) => (
           <span
             key={`${tech}-${i}`}
-            className="font-display text-2xl md:text-3xl font-bold text-primex-gray-700 hover:text-primex-green transition-colors whitespace-nowrap"
+            className="font-display text-2xl md:text-3xl font-bold text-primex-gray-300 hover:text-primex-green transition-colors whitespace-nowrap"
           >
             {tech}
           </span>

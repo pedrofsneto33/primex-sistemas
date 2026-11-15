@@ -19,7 +19,7 @@ export const values: Value[] = [
     id: "qualidade",
     title: "Qualidade",
     description:
-      "Entregamos produtos e serviços de alta qualidade, com padrões rigorously testados e validados.",
+      "Entregamos produtos e serviços de alta qualidade, com padrões rigorosamente testados e validados.",
     icon: "Award",
   },
   {
